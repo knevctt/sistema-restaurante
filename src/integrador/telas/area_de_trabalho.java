@@ -67,7 +67,7 @@ public class area_de_trabalho extends javax.swing.JFrame {
             .addGap(0, 1050, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jMenuBar1.setFont(new java.awt.Font("MonoLisa-Black", 0, 18)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(289, 30));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconePessoas.png"))); // NOI18N
@@ -104,6 +104,11 @@ public class area_de_trabalho extends javax.swing.JFrame {
         jMenu5.setText("Sair");
 
         jMenuItem4.setText("Sair do Sistema");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem4);
 
         jMenuBar1.add(jMenu5);
@@ -131,6 +136,10 @@ public class area_de_trabalho extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setExtendedState(this.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.dispose(); // fecha o programa
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
