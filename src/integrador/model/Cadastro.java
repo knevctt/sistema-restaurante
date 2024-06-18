@@ -1,4 +1,4 @@
-package modelo;
+package integrador.model;
 
 public class Cadastro {
     

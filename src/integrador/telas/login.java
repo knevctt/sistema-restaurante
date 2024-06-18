@@ -36,7 +36,13 @@ public class login extends javax.swing.JFrame {
         usuario = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOGIN");
         setPreferredSize(new java.awt.Dimension(1920, 1080));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
@@ -56,7 +62,7 @@ public class login extends javax.swing.JFrame {
         Entrar.setBackground(new java.awt.Color(204, 204, 255));
         Entrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Entrar.setForeground(new java.awt.Color(51, 51, 51));
-        Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/login-square-arrow-button-outline_54874.png"))); // NOI18N
+        Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/entrarImg.png"))); // NOI18N
         Entrar.setText("ENTRAR");
         Entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,11 +70,16 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/integrador/telas/imagens/imagem_um/_cd3412ba-4a76-4454-875a-0e45dfd14073_resized.jpeg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensFundo/restauranteLogo.jpeg"))); // NOI18N
         jLabel4.setText("jLabel1");
         jLabel4.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
-        senha.setText("jPasswor");
+        senha.setText("jPass");
+        senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaActionPerformed(evt);
+            }
+        });
 
         usuario.setText("Usuario");
         usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -82,21 +93,21 @@ public class login extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(199, 199, 199)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(266, 266, 266)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addComponent(Entrar))
                 .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(263, 263, 263)
                 .addComponent(jLabel1)
                 .addGap(116, 116, 116)
                 .addComponent(jLabel2)
@@ -107,9 +118,9 @@ public class login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(367, 367, 367))
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+                .addComponent(Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,11 +151,16 @@ public class login extends javax.swing.JFrame {
 
             rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Usuário e senha corretos");
+              
                 rs.close();
                 pst.close();
 
                 // Abra a nova tela aqui
+                area_de_trabalho novaTela = new area_de_trabalho();
+                novaTela.setVisible(true);
+
+                // Opcional: Feche a tela de login
+                this.dispose(); // se o Login for um JFrame
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos");
             }
@@ -163,6 +179,14 @@ public class login extends javax.swing.JFrame {
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioActionPerformed
+
+    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowActivated
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
