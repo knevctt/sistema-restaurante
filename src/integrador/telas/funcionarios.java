@@ -4,10 +4,9 @@
  */
 package integrador.telas;
 
-/**
- *
- * @author knevc
- */
+import integrador.dao.funcionariosDAO;
+import integrador.model.Funcionarios;
+
 public class funcionarios extends javax.swing.JFrame {
 
     /**
@@ -26,9 +25,9 @@ public class funcionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PainelFuncionarios = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        PainelGuiasMenuFuncionarios = new javax.swing.JTabbedPane();
         CadastrarFuncionarios = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         idFuncionario = new javax.swing.JTextField();
@@ -37,7 +36,7 @@ public class funcionarios extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        senhaUsuario = new javax.swing.JTextField();
+        senhaFuncionario = new javax.swing.JTextField();
         loginUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -48,7 +47,7 @@ public class funcionarios extends javax.swing.JFrame {
         rgFuncionario = new javax.swing.JFormattedTextField();
         cpfFuncionario = new javax.swing.JFormattedTextField();
         nivelPermissao = new javax.swing.JComboBox<>();
-        botaoCriar = new javax.swing.JButton();
+        botaoSalvar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         sexoFuncionario = new javax.swing.JComboBox<>();
         ConsultarFuncionarios = new javax.swing.JPanel();
@@ -62,29 +61,29 @@ public class funcionarios extends javax.swing.JFrame {
         setTitle("Funcionarios");
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PainelFuncionarios.setBackground(new java.awt.Color(0, 0, 0));
+        PainelFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(207, 181, 59));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("FUNCIONARIOS");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PainelFuncionariosLayout = new javax.swing.GroupLayout(PainelFuncionarios);
+        PainelFuncionarios.setLayout(PainelFuncionariosLayout);
+        PainelFuncionariosLayout.setHorizontalGroup(
+            PainelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        PainelFuncionariosLayout.setVerticalGroup(
+            PainelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelFuncionariosLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasMenuFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         CadastrarFuncionarios.setBackground(new java.awt.Color(204, 204, 204));
         CadastrarFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -95,8 +94,10 @@ public class funcionarios extends javax.swing.JFrame {
         jLabel2.setText("ID:");
 
         idFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         nomeCompletoFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nomeCompletoFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Nome Completo:");
@@ -111,9 +112,11 @@ public class funcionarios extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Senha:");
 
-        senhaUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        senhaFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        senhaFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         loginUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Login:");
@@ -128,42 +131,54 @@ public class funcionarios extends javax.swing.JFrame {
         jLabel10.setText("Email:");
 
         emailFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        emailFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        whatsappFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         try {
             whatsappFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        rgFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         try {
             rgFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        cpfFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         try {
-            cpfFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            cpfFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         nivelPermissao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nivelPermissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Gerente", "2 - Caixa", "3 - Garçom", "4 - Porteiro", "5 - Admin", " " }));
+        nivelPermissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        nivelPermissao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         nivelPermissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nivelPermissaoActionPerformed(evt);
             }
         });
 
-        botaoCriar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botaoCriar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
-        botaoCriar.setText("Salvar");
+        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
+        botaoSalvar.setText("Salvar");
+        botaoSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("Sexo");
 
         sexoFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        sexoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - MASCULINO", "2 - FEMININO", "3 - Heterossexual", "4 - Homossexual", "5 - Bissexual", "6 - Pansexual", "7 - Assexual", "8 - Demissexual", "9 - Polissexual", "10 - Queer", "11 - Lesbica", "12 - Gay" }));
+        sexoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        sexoFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         sexoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sexoFuncionarioActionPerformed(evt);
@@ -191,7 +206,7 @@ public class funcionarios extends javax.swing.JFrame {
                         .addComponent(emailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                         .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botaoCriar)
+                            .addComponent(botaoSalvar)
                             .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -211,7 +226,7 @@ public class funcionarios extends javax.swing.JFrame {
                                     .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(senhaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
@@ -224,7 +239,7 @@ public class funcionarios extends javax.swing.JFrame {
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(sexoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         CadastrarFuncionariosLayout.setVerticalGroup(
             CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,42 +253,46 @@ public class funcionarios extends javax.swing.JFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(rgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(whatsappFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(sexoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sexoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(rgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(whatsappFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(loginUsuario)
                         .addComponent(jLabel6)
-                        .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(senhaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
                         .addComponent(nivelPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                .addComponent(botaoCriar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(botaoSalvar)
                 .addGap(51, 51, 51))
         );
 
-        jTabbedPane1.addTab("Cadastrar Funcionarios", CadastrarFuncionarios);
+        PainelGuiasMenuFuncionarios.addTab("Cadastrar Funcionarios", CadastrarFuncionarios);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Nome Completo:");
 
         nomeCompletoFuncionario1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nomeCompletoFuncionario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         jButton1.setText("Pesquisar");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -306,8 +325,8 @@ public class funcionarios extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nomeCompletoFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(0, 374, Short.MAX_VALUE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 376, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ConsultarFuncionariosLayout.setVerticalGroup(
@@ -317,27 +336,27 @@ public class funcionarios extends javax.swing.JFrame {
                 .addGroup(ConsultarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeCompletoFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Consulta de Funcionarios", ConsultarFuncionarios);
+        PainelGuiasMenuFuncionarios.addTab("Consulta de Funcionarios", ConsultarFuncionarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jTabbedPane1)
+            .addComponent(PainelFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PainelGuiasMenuFuncionarios)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -351,6 +370,20 @@ public class funcionarios extends javax.swing.JFrame {
     private void sexoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sexoFuncionarioActionPerformed
+
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        Funcionarios obj = new Funcionarios();
+        obj.setFullname(nomeCompletoFuncionario.getText());
+        obj.setRG(Integer.valueOf(rgFuncionario.getText()));
+        obj.setCPF(cpfFuncionario.getText());
+        obj.setLogin(loginUsuario.getText());
+        obj.setEmployeePassword(senhaFuncionario.getText());
+        obj.setFk_idEmployeeLevel(Integer.parseInt(nivelPermissao.getSelectedItem().toString()));
+        obj.setFk_idEmployeeSex(Integer.parseInt(sexoFuncionario.getSelectedItem().toString()));
+        
+        funcionariosDAO dao = new funcionariosDAO();
+        dao.salvar(obj);
+    }//GEN-LAST:event_botaoSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,7 +423,9 @@ public class funcionarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CadastrarFuncionarios;
     private javax.swing.JPanel ConsultarFuncionarios;
-    private javax.swing.JButton botaoCriar;
+    private javax.swing.JPanel PainelFuncionarios;
+    private javax.swing.JTabbedPane PainelGuiasMenuFuncionarios;
+    private javax.swing.JButton botaoSalvar;
     private javax.swing.JFormattedTextField cpfFuncionario;
     private javax.swing.JTextField emailFuncionario;
     private javax.swing.JTextField idFuncionario;
@@ -407,16 +442,14 @@ public class funcionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField loginUsuario;
     private javax.swing.JComboBox<String> nivelPermissao;
     private javax.swing.JTextField nomeCompletoFuncionario;
     private javax.swing.JTextField nomeCompletoFuncionario1;
     private javax.swing.JFormattedTextField rgFuncionario;
-    private javax.swing.JTextField senhaUsuario;
+    private javax.swing.JTextField senhaFuncionario;
     private javax.swing.JComboBox<String> sexoFuncionario;
     private javax.swing.JFormattedTextField whatsappFuncionario;
     // End of variables declaration//GEN-END:variables
