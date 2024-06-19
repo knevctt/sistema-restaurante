@@ -32,50 +32,49 @@ public class area_de_trabalho extends javax.swing.JFrame {
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagensFundo/fundo principal sistema.jpg"));
         Image image = icon.getImage();
-        painel_desktop = new javax.swing.JDesktopPane(){
+        PapelDeParedeMenu = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        BarraMenu = new javax.swing.JMenuBar();
+        FuncionariosMenu = new javax.swing.JMenu();
+        EstoqueMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        PedidosMenu = new javax.swing.JMenu();
+        VendasMenu = new javax.swing.JMenu();
+        SairMenu = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TELA PRINCIPAL");
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
 
-        javax.swing.GroupLayout painel_desktopLayout = new javax.swing.GroupLayout(painel_desktop);
-        painel_desktop.setLayout(painel_desktopLayout);
-        painel_desktopLayout.setHorizontalGroup(
-            painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PapelDeParedeMenuLayout = new javax.swing.GroupLayout(PapelDeParedeMenu);
+        PapelDeParedeMenu.setLayout(PapelDeParedeMenuLayout);
+        PapelDeParedeMenuLayout.setHorizontalGroup(
+            PapelDeParedeMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1920, Short.MAX_VALUE)
         );
-        painel_desktopLayout.setVerticalGroup(
-            painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PapelDeParedeMenuLayout.setVerticalGroup(
+            PapelDeParedeMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1050, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setFont(new java.awt.Font("MonoLisa-Black", 0, 18)); // NOI18N
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(289, 30));
+        BarraMenu.setFont(new java.awt.Font("MonoLisa-Black", 0, 18)); // NOI18N
+        BarraMenu.setPreferredSize(new java.awt.Dimension(289, 30));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconePessoas.png"))); // NOI18N
-        jMenu1.setText("Funcionarios");
-        jMenuBar1.add(jMenu1);
+        FuncionariosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconePessoas.png"))); // NOI18N
+        FuncionariosMenu.setText("Funcionarios");
+        BarraMenu.add(FuncionariosMenu);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/estoque.png"))); // NOI18N
-        jMenu2.setText("Estoque");
+        EstoqueMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/estoque.png"))); // NOI18N
+        EstoqueMenu.setText("Estoque");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         jMenuItem1.setText("Controle de Estoque");
@@ -84,24 +83,24 @@ public class area_de_trabalho extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        EstoqueMenu.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         jMenuItem2.setText("Consulta de Produtos");
-        jMenu2.add(jMenuItem2);
+        EstoqueMenu.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        BarraMenu.add(EstoqueMenu);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pedido.png"))); // NOI18N
-        jMenu3.setText("Pedidos");
-        jMenuBar1.add(jMenu3);
+        PedidosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pedido.png"))); // NOI18N
+        PedidosMenu.setText("Pedidos");
+        BarraMenu.add(PedidosMenu);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas.png"))); // NOI18N
-        jMenu4.setText("Vendas");
-        jMenuBar1.add(jMenu4);
+        VendasMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas.png"))); // NOI18N
+        VendasMenu.setText("Vendas");
+        BarraMenu.add(VendasMenu);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
-        jMenu5.setText("Sair");
+        SairMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
+        SairMenu.setText("Sair");
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem4.setText("Sair do Sistema");
@@ -110,21 +109,21 @@ public class area_de_trabalho extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem4);
+        SairMenu.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu5);
+        BarraMenu.add(SairMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(BarraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painel_desktop)
+            .addComponent(PapelDeParedeMenu)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painel_desktop)
+            .addComponent(PapelDeParedeMenu)
         );
 
         pack();
@@ -179,15 +178,15 @@ public class area_de_trabalho extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenu EstoqueMenu;
+    private javax.swing.JMenu FuncionariosMenu;
+    private javax.swing.JDesktopPane PapelDeParedeMenu;
+    private javax.swing.JMenu PedidosMenu;
+    private javax.swing.JMenu SairMenu;
+    private javax.swing.JMenu VendasMenu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables
 }
