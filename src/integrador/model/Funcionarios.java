@@ -66,14 +66,6 @@ public class Funcionarios {
         this.fk_idEmployeeSex = fk_idEmployeeSex;
     }
 
-    /*public byte[] getImagem() {
-        return imagem;
-    }*/
-
-    /*public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
-    }*/
-
     private int idEmployee;
     private String fullname;
     private int RG;
@@ -82,6 +74,5 @@ public class Funcionarios {
     private String employeePassword;
     private int fk_idEmployeeLevel;
     private int fk_idEmployeeSex;
-    //private byte[] imagem;
     
 }

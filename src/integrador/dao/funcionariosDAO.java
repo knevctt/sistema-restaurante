@@ -17,7 +17,7 @@ public class funcionariosDAO {
         this.conn = new ConexaoBanco().conectar();
     }
     
-    public void salvar(Funcionarios obj){
+    public void Salvar(Funcionarios obj){
         try{
             // 1 cria o SQL
             String sql = "insert into employee(FullName, RG, CPF, login, employeePassword, fk_idEmployeeLevel, fk_idEmployeeSex)" 
@@ -41,6 +41,46 @@ public class funcionariosDAO {
         } catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro ao salvar o cliente: " + erro.getMessage());
         }
+    }
+    
+    public void Editar(Funcionarios obj){
+        try{
+            // 1 cria o SQL
+            String sql = "UPDATE employee SET fullName = ?, RG = ?, CPF = ?, login = ?, employeePassword = ?, fk_idEmployeeLevel = ?, fk_idEmployeeSex = ? WHERE idEmployee = ?";
+            // 2 preparar a conexao SQL para se conectar com o banco
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, obj.getFullname());
+            stmt.setInt(2, obj.getRG());
+            stmt.setString(3, obj.getCPF());
+            stmt.setString(4, obj.getLogin());
+            stmt.setString(5, obj.getEmployeePassword());
+            stmt.setInt(6, obj.getFk_idEmployeeLevel());
+            stmt.setInt(7, obj.getFk_idEmployeeSex());
+            stmt.setInt(8, obj.getIdEmployee());
+            
+            // 3 Passo executar sql
+            stmt.executeUpdate();
+            // 4 fechar conexao
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "Funcionario editado com Sucesso!");
+        } catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro ao editar o cliente: " + erro.getMessage());
+        }
+    }
+    
+    public void Excluir(Funcionarios obj){
+    
+        try{
+            String sql = "DELETE FROM employee WHERE idEmployee = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, obj.getIdEmployee());
+            stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "Usuario excluido com sucesso!");
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir usuario: " + erro);
+        }
+    
     }
 
     public void setFullname(String text) {
@@ -71,7 +111,7 @@ public class funcionariosDAO {
         return null;
     }
     
-        public List<Funcionarios>listar(){
+        public List<Funcionarios>Listar(){
             List<Funcionarios> lista = new ArrayList<>();
             try{
                 String sql = "SELECT * FROM employee";
@@ -98,7 +138,7 @@ public class funcionariosDAO {
                 return null;
     }
         
-    public List<Funcionarios>filtrar(String fullname){
+    public List<Funcionarios>Filtrar(String fullname){
             List<Funcionarios> lista = new ArrayList<>();
             try{
                 String sql = "SELECT * FROM employee WHERE fullname like ?";
@@ -125,4 +165,6 @@ public class funcionariosDAO {
             }
                 return null;
     }
+    
+    
 }
