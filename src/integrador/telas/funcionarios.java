@@ -88,7 +88,6 @@ public class funcionarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Funcionarios");
-        setPreferredSize(new java.awt.Dimension(950, 650));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -411,9 +410,8 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        tabela.setBackground(new java.awt.Color(204, 204, 204));
         tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tabela.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tabela.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -575,6 +573,10 @@ public class funcionarios extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listar();
+        
+        //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
+        Utilitarios u = new Utilitarios();
+        u.InserirIcone(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void botaoPesquisarTableFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTableFuncionariosActionPerformed

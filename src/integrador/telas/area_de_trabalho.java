@@ -4,6 +4,7 @@
  */
 package integrador.telas;
 
+import integrador.utilitarios.Utilitarios;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -63,11 +64,11 @@ public class area_de_trabalho extends javax.swing.JFrame {
         );
         PapelDeParedeMenuLayout.setVerticalGroup(
             PapelDeParedeMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1050, Short.MAX_VALUE)
+            .addGap(0, 1040, Short.MAX_VALUE)
         );
 
         BarraMenu.setFont(new java.awt.Font("MonoLisa-Black", 0, 18)); // NOI18N
-        BarraMenu.setPreferredSize(new java.awt.Dimension(289, 30));
+        BarraMenu.setPreferredSize(new java.awt.Dimension(289, 40));
 
         FuncionariosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconePessoas.png"))); // NOI18N
         FuncionariosMenu.setText("Funcionarios");
@@ -135,6 +136,10 @@ public class area_de_trabalho extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setExtendedState(this.MAXIMIZED_BOTH);
+        
+        //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
+        Utilitarios u = new Utilitarios();
+        u.InserirIcone(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
