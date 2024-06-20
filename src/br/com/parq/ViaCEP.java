@@ -4,8 +4,12 @@
  * 
  * Obtem um CEP no ViaCEP
  */
-package br.com.parg.viacep;
+package br.com.parq;
 
+import br.com.parg.viacep.CEP;
+import br.com.parg.viacep.ViaCEPBase;
+import br.com.parg.viacep.ViaCEPEvents;
+import br.com.parg.viacep.ViaCEPException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
