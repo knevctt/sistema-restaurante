@@ -4,8 +4,10 @@
  */
 package integrador.telas;
 
+import integrador.dao.ProdutosDAO;
 import integrador.dao.funcionariosDAO;
 import integrador.model.Funcionarios;
+import integrador.model.Produtos;
 import javax.swing.JOptionPane;
 import integrador.utilitarios.Utilitarios;
 import java.awt.event.KeyEvent;
@@ -19,20 +21,17 @@ public class Estoque extends javax.swing.JFrame {
      */
     
     public void listar(){
-        funcionariosDAO dao = new funcionariosDAO();
-        List<Funcionarios> lista = dao.Listar();
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.Listar();
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(Funcionarios f : lista){
+        for(Produtos p : lista){
             dados.addRow(new Object[]{
-                f.getIdEmployee(),
-                f.getFullname(),
-                f.getRG(),
-                f.getCPF(),
-                f.getLogin(),
-                f.getEmployeePassword(),
-                f.getFk_idEmployeeLevel(),
-                f.getFk_idEmployeeSex(),
+                p.getIdProduct(),
+                p.getNameProduct(),
+                p.getPrice(),
+                p.getStock(),
+                p.getTipodeproduto().getProductType()
             });
         }
     }
@@ -50,12 +49,12 @@ public class Estoque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PainelFuncionarios = new javax.swing.JPanel();
+        PainelControleEstoque = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PainelGuiasMenuFuncionarios = new javax.swing.JTabbedPane();
-        CadastrarFuncionarios = new javax.swing.JPanel();
+        PainelGuiasMenuControle = new javax.swing.JTabbedPane();
+        CadastrarProdutos = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        idFuncionario = new javax.swing.JTextField();
+        idProduto = new javax.swing.JTextField();
         txtDescricao = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         botaoSalvar = new javax.swing.JButton();
@@ -69,8 +68,6 @@ public class Estoque extends javax.swing.JFrame {
         txtQuantidade = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         cbTipoProduto = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         ConsultarFuncionarios = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtPesquisaDescricao = new javax.swing.JTextField();
@@ -79,7 +76,7 @@ public class Estoque extends javax.swing.JFrame {
         tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Funcionarios");
+        setTitle("Estoque");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -87,44 +84,44 @@ public class Estoque extends javax.swing.JFrame {
             }
         });
 
-        PainelFuncionarios.setBackground(new java.awt.Color(0, 0, 0));
-        PainelFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PainelControleEstoque.setBackground(new java.awt.Color(0, 0, 0));
+        PainelControleEstoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(207, 181, 59));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONTROLE DE ESTOQUE");
 
-        javax.swing.GroupLayout PainelFuncionariosLayout = new javax.swing.GroupLayout(PainelFuncionarios);
-        PainelFuncionarios.setLayout(PainelFuncionariosLayout);
-        PainelFuncionariosLayout.setHorizontalGroup(
-            PainelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PainelControleEstoqueLayout = new javax.swing.GroupLayout(PainelControleEstoque);
+        PainelControleEstoque.setLayout(PainelControleEstoqueLayout);
+        PainelControleEstoqueLayout.setHorizontalGroup(
+            PainelControleEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        PainelFuncionariosLayout.setVerticalGroup(
-            PainelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelFuncionariosLayout.createSequentialGroup()
+        PainelControleEstoqueLayout.setVerticalGroup(
+            PainelControleEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelControleEstoqueLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasMenuFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasMenuControle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        CadastrarFuncionarios.setBackground(new java.awt.Color(204, 204, 204));
-        CadastrarFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CadastrarFuncionarios.setPreferredSize(new java.awt.Dimension(1100, 700));
+        CadastrarProdutos.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CadastrarProdutos.setPreferredSize(new java.awt.Dimension(1100, 700));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Codigo:");
 
-        idFuncionario.setEditable(false);
-        idFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        idFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        idProduto.setEditable(false);
+        idProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        idProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idFuncionarioActionPerformed(evt);
+                idProdutoActionPerformed(evt);
             }
         });
 
@@ -230,91 +227,77 @@ public class Estoque extends javax.swing.JFrame {
         jLabel12.setText("Produto tipo:");
 
         cbTipoProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cbTipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
         cbTipoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jTextPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jTextPane1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextPane1.setText("1 - Bebidas\n2 - Sobremesas\n3 - Massas\n4 - Carnes");
-        jScrollPane2.setViewportView(jTextPane1);
-
-        javax.swing.GroupLayout CadastrarFuncionariosLayout = new javax.swing.GroupLayout(CadastrarFuncionarios);
-        CadastrarFuncionarios.setLayout(CadastrarFuncionariosLayout);
-        CadastrarFuncionariosLayout.setHorizontalGroup(
-            CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
+        javax.swing.GroupLayout CadastrarProdutosLayout = new javax.swing.GroupLayout(CadastrarProdutos);
+        CadastrarProdutos.setLayout(CadastrarProdutosLayout);
+        CadastrarProdutosLayout.setHorizontalGroup(
+            CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastrarProdutosLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
-                        .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
-                                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtQuantidade, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtPreco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 176, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastrarFuncionariosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(245, 245, 245))
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CadastrarProdutosLayout.createSequentialGroup()
+                        .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(CadastrarProdutosLayout.createSequentialGroup()
+                                .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtPreco, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtQuantidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
-        CadastrarFuncionariosLayout.setVerticalGroup(
-            CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
+        CadastrarProdutosLayout.setVerticalGroup(
+            CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastrarProdutosLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(idFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar))
                 .addGap(18, 18, 18)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(0, 16, Short.MAX_VALUE)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(60, 60, 60)
+                .addGroup(CadastrarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
                     .addComponent(botaoEditar)
                     .addComponent(botaoExcluir))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
-        PainelGuiasMenuFuncionarios.addTab("Cadastrar Produtos", CadastrarFuncionarios);
+        PainelGuiasMenuControle.addTab("Cadastrar Produtos", CadastrarProdutos);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Descrição do Produto:");
@@ -374,7 +357,7 @@ public class Estoque extends javax.swing.JFrame {
             .addGroup(ConsultarFuncionariosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ConsultarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
                     .addGroup(ConsultarFuncionariosLayout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -396,21 +379,21 @@ public class Estoque extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PainelGuiasMenuFuncionarios.addTab("Consulta de Produtos", ConsultarFuncionarios);
+        PainelGuiasMenuControle.addTab("Consulta de Produtos", ConsultarFuncionarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+            .addComponent(PainelControleEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PainelGuiasMenuControle, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PainelFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelControleEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelGuiasMenuControle, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -425,7 +408,7 @@ public class Estoque extends javax.swing.JFrame {
         funcionariosDAO dao = new funcionariosDAO();
         dao.Salvar(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarFuncionarios);
+        util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -434,7 +417,7 @@ public class Estoque extends javax.swing.JFrame {
         funcionariosDAO dao = new funcionariosDAO();
         obj = dao.BuscarFuncionario(fullName);
         if(obj.getFullname() != null){
-            idFuncionario.setText(String.valueOf(obj.getIdEmployee()));
+            idProduto.setText(String.valueOf(obj.getIdEmployee()));
             txtDescricao.setText(obj.getFullname());
         }else{
             JOptionPane.showMessageDialog(null, "Cliente nao encontrado");
@@ -447,28 +430,28 @@ public class Estoque extends javax.swing.JFrame {
 
     private void botaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoActionPerformed
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarFuncionarios);
+        util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoNovoActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         
         Funcionarios obj = new Funcionarios();
         obj.setFullname(txtDescricao.getText());
-        obj.setIdEmployee(Integer.valueOf(idFuncionario.getText()));
+        obj.setIdEmployee(Integer.valueOf(idProduto.getText()));
         
         funcionariosDAO dao = new funcionariosDAO();
         dao.Editar(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarFuncionarios);
+        util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         Funcionarios obj = new Funcionarios();
-        obj.setIdEmployee(Integer.valueOf(idFuncionario.getText()));
+        obj.setIdEmployee(Integer.valueOf(idProduto.getText()));
         funcionariosDAO dao = new funcionariosDAO();
         dao.Excluir(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarFuncionarios);
+        util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -532,7 +515,7 @@ public class Estoque extends javax.swing.JFrame {
         funcionariosDAO dao = new funcionariosDAO();
         obj = dao.BuscarFuncionario(fullName);
         if(obj.getFullname() != null){
-            idFuncionario.setText(String.valueOf(obj.getIdEmployee()));
+            idProduto.setText(String.valueOf(obj.getIdEmployee()));
             txtDescricao.setText(obj.getFullname());
         }else{
             JOptionPane.showMessageDialog(null, "Cliente nao encontrado");
@@ -541,8 +524,8 @@ public class Estoque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoKeyPressed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        PainelGuiasMenuFuncionarios.setSelectedIndex(0);
-        idFuncionario.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        PainelGuiasMenuControle.setSelectedIndex(0);
+        idProduto.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
         txtDescricao.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tabelaMouseClicked
 
@@ -562,9 +545,9 @@ public class Estoque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQuantidadeKeyPressed
 
-    private void idFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFuncionarioActionPerformed
+    private void idProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idFuncionarioActionPerformed
+    }//GEN-LAST:event_idProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,10 +586,10 @@ public class Estoque extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CadastrarFuncionarios;
+    private javax.swing.JPanel CadastrarProdutos;
     private javax.swing.JPanel ConsultarFuncionarios;
-    private javax.swing.JPanel PainelFuncionarios;
-    private javax.swing.JTabbedPane PainelGuiasMenuFuncionarios;
+    private javax.swing.JPanel PainelControleEstoque;
+    private javax.swing.JTabbedPane PainelGuiasMenuControle;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoNovo;
@@ -614,7 +597,7 @@ public class Estoque extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JComboBox<String> cbTipoProduto;
-    private javax.swing.JTextField idFuncionario;
+    private javax.swing.JTextField idProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -623,8 +606,6 @@ public class Estoque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTable tabela;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtPesquisaDescricao;
