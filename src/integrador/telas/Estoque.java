@@ -5,9 +5,11 @@
 package integrador.telas;
 
 import integrador.dao.ProdutosDAO;
+import integrador.dao.TipoDeProdutosDAO;
 import integrador.dao.funcionariosDAO;
 import integrador.model.Funcionarios;
 import integrador.model.Produtos;
+import integrador.model.TipoDeProduto;
 import javax.swing.JOptionPane;
 import integrador.utilitarios.Utilitarios;
 import java.awt.event.KeyEvent;
@@ -67,7 +69,7 @@ public class Estoque extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        cbTipoProduto = new javax.swing.JComboBox<>();
+        cbTipoProduto = new javax.swing.JComboBox();
         ConsultarFuncionarios = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtPesquisaDescricao = new javax.swing.JTextField();
@@ -228,6 +230,25 @@ public class Estoque extends javax.swing.JFrame {
 
         cbTipoProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbTipoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        cbTipoProduto.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbTipoProdutoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbTipoProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbTipoProdutoMouseClicked(evt);
+            }
+        });
+        cbTipoProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CadastrarProdutosLayout = new javax.swing.GroupLayout(CadastrarProdutos);
         CadastrarProdutos.setLayout(CadastrarProdutosLayout);
@@ -336,7 +357,7 @@ public class Estoque extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -349,6 +370,13 @@ public class Estoque extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabela);
+        if (tabela.getColumnModel().getColumnCount() > 0) {
+            tabela.getColumnModel().getColumn(0).setHeaderValue("ID");
+            tabela.getColumnModel().getColumn(1).setHeaderValue("Descrição:");
+            tabela.getColumnModel().getColumn(2).setHeaderValue("Preço");
+            tabela.getColumnModel().getColumn(3).setHeaderValue("Estoque");
+            tabela.getColumnModel().getColumn(4).setHeaderValue("Tipo");
+        }
 
         javax.swing.GroupLayout ConsultarFuncionariosLayout = new javax.swing.GroupLayout(ConsultarFuncionarios);
         ConsultarFuncionarios.setLayout(ConsultarFuncionariosLayout);
@@ -402,25 +430,43 @@ public class Estoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        Funcionarios obj = new Funcionarios();
-        obj.setFullname(txtDescricao.getText());
+        Produtos obj = new Produtos();
+        obj.setNameProduct(txtDescricao.getText());
+        obj.setPrice(Double.valueOf(txtPreco.getText()));
+        obj.setStock(Integer.valueOf(txtQuantidade.getText()));
+        obj.setTipodeproduto((TipoDeProduto)cbTipoProduto.getSelectedItem());
         
-        funcionariosDAO dao = new funcionariosDAO();
+        ProdutosDAO dao = new ProdutosDAO();
         dao.Salvar(obj);
         Utilitarios util = new Utilitarios();
         util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        String fullName = txtDescricao.getText();
-        Funcionarios obj = new Funcionarios();
-        funcionariosDAO dao = new funcionariosDAO();
-        obj = dao.BuscarFuncionario(fullName);
-        if(obj.getFullname() != null){
-            idProduto.setText(String.valueOf(obj.getIdEmployee()));
-            txtDescricao.setText(obj.getFullname());
+        
+        String nameProduct = txtDescricao.getText();
+        
+        Produtos obj = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
+        
+        TipoDeProduto tp = new TipoDeProduto();
+        TipoDeProdutosDAO tpdao = new TipoDeProdutosDAO();
+        
+        
+        obj = dao.BuscarProdutos(nameProduct);
+        
+        if(obj.getNameProduct() != null){
+            
+            idProduto.setText(String.valueOf(obj.getIdProduct()));
+            txtDescricao.setText(obj.getNameProduct());
+            txtPreco.setText(String.valueOf(obj.getPrice()));
+            txtQuantidade.setText(String.valueOf(obj.getStock()));
+        
+            tp = tpdao.BuscarTipoDeProdutos(obj.getTipodeproduto().getProductType());
+            cbTipoProduto.getModel().setSelectedItem(tp);
+            
         }else{
-            JOptionPane.showMessageDialog(null, "Cliente nao encontrado");
+            JOptionPane.showMessageDialog(null, "Produto nao encontrado");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -429,26 +475,34 @@ public class Estoque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoActionPerformed
 
     private void botaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoActionPerformed
+        
+        
         Utilitarios util = new Utilitarios();
         util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoNovoActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        Produtos obj = new Produtos();
+        obj.setIdProduct(Integer.valueOf(idProduto.getText()));
+        obj.setNameProduct(txtDescricao.getText());
+        obj.setPrice(Double.valueOf(txtPreco.getText()));
+        obj.setStock(Integer.valueOf(txtQuantidade.getText()));
         
-        Funcionarios obj = new Funcionarios();
-        obj.setFullname(txtDescricao.getText());
-        obj.setIdEmployee(Integer.valueOf(idProduto.getText()));
+        TipoDeProduto tp = new TipoDeProduto();
+        tp = (TipoDeProduto) cbTipoProduto.getSelectedItem();
         
-        funcionariosDAO dao = new funcionariosDAO();
+        obj.setTipodeproduto(tp);
+        
+        ProdutosDAO dao = new ProdutosDAO();
         dao.Editar(obj);
         Utilitarios util = new Utilitarios();
         util.LimpaTela(CadastrarProdutos);
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        Funcionarios obj = new Funcionarios();
-        obj.setIdEmployee(Integer.valueOf(idProduto.getText()));
-        funcionariosDAO dao = new funcionariosDAO();
+        Produtos obj = new Produtos();
+        obj.setIdProduct(Integer.valueOf(idProduto.getText()));
+        ProdutosDAO dao = new ProdutosDAO();
         dao.Excluir(obj);
         Utilitarios util = new Utilitarios();
         util.LimpaTela(CadastrarProdutos);
@@ -463,25 +517,20 @@ public class Estoque extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        String fullname = "%" + txtPesquisaDescricao.getText() + "%";
-        funcionariosDAO dao = new funcionariosDAO();
-        List<Funcionarios> lista = dao.Filtrar(fullname);
+        String nameProduct = "%" + txtPesquisaDescricao.getText() + "%";
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.Filtrar(nameProduct);
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(Funcionarios f : lista){
+        for(Produtos p : lista){
             dados.addRow(new Object[]{
-                f.getIdEmployee(),
-                f.getFullname(),
-                f.getRG(),
-                f.getCPF(),
-                f.getLogin(),
-                f.getEmployeePassword(),
-                f.getFk_idEmployeeLevel(),
-                f.getFk_idEmployeeSex(),
+                p.getIdProduct(),
+                p.getNameProduct(),
+                p.getPrice(),
+                p.getStock(),
+                p.getTipodeproduto().getProductType()
             });
         }
-    
-
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void txtPesquisaDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaDescricaoActionPerformed
@@ -489,36 +538,46 @@ public class Estoque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisaDescricaoActionPerformed
 
     private void txtPesquisaDescricaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaDescricaoKeyReleased
-        String fullname = "%" + txtPesquisaDescricao.getText() + "%";
-        funcionariosDAO dao = new funcionariosDAO();
-        List<Funcionarios> lista = dao.Filtrar(fullname);
+        String nameProduct = "%" + txtPesquisaDescricao.getText() + "%";
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.Filtrar(nameProduct);
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(Funcionarios f : lista){
+        for(Produtos p : lista){
             dados.addRow(new Object[]{
-                f.getIdEmployee(),
-                f.getFullname(),
-                f.getRG(),
-                f.getCPF(),
-                f.getLogin(),
-                f.getEmployeePassword(),
-                f.getFk_idEmployeeLevel(),
-                f.getFk_idEmployeeSex(),
+                p.getIdProduct(),
+                p.getNameProduct(),
+                p.getPrice(),
+                p.getStock(),
+                p.getTipodeproduto().getProductType()
             });
         }
     }//GEN-LAST:event_txtPesquisaDescricaoKeyReleased
 
     private void txtDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescricaoKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String fullName = txtDescricao.getText();
-        Funcionarios obj = new Funcionarios();
-        funcionariosDAO dao = new funcionariosDAO();
-        obj = dao.BuscarFuncionario(fullName);
-        if(obj.getFullname() != null){
-            idProduto.setText(String.valueOf(obj.getIdEmployee()));
-            txtDescricao.setText(obj.getFullname());
-        }else{
-            JOptionPane.showMessageDialog(null, "Cliente nao encontrado");
+            String nameProduct = txtDescricao.getText();
+        
+        Produtos obj = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
+        
+        TipoDeProduto tp = new TipoDeProduto();
+        TipoDeProdutosDAO tpdao = new TipoDeProdutosDAO();
+        
+        
+        obj = dao.BuscarProdutos(nameProduct);
+        
+        if(obj.getNameProduct() != null){
+            
+            idProduto.setText(String.valueOf(obj.getIdProduct()));
+            txtDescricao.setText(obj.getNameProduct());
+            txtPreco.setText(String.valueOf(obj.getPrice()));
+            txtQuantidade.setText(String.valueOf(obj.getStock()));
+        
+            tp = tpdao.BuscarTipoDeProdutos(obj.getTipodeproduto().getProductType());
+            cbTipoProduto.getModel().setSelectedItem(tp);
+            }else{
+            JOptionPane.showMessageDialog(null, "Produto nao encontrado");
         }
         }
     }//GEN-LAST:event_txtDescricaoKeyPressed
@@ -527,6 +586,15 @@ public class Estoque extends javax.swing.JFrame {
         PainelGuiasMenuControle.setSelectedIndex(0);
         idProduto.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
         txtDescricao.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
+        txtPreco.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
+        txtQuantidade.setText(tabela.getValueAt(tabela.getSelectedRow(), 3).toString());
+        
+        TipoDeProduto tp = new TipoDeProduto();
+        TipoDeProdutosDAO tpDAO = new TipoDeProdutosDAO();
+        
+        tp = tpDAO.BuscarTipoDeProdutos(tabela.getValueAt(tabela.getSelectedRow(), 4).toString());
+        cbTipoProduto.removeAllItems();
+        cbTipoProduto.getModel().setSelectedItem(tp);
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
@@ -548,6 +616,23 @@ public class Estoque extends javax.swing.JFrame {
     private void idProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idProdutoActionPerformed
+
+    private void cbTipoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoProdutoActionPerformed
+
+    private void cbTipoProdutoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbTipoProdutoAncestorAdded
+        
+    }//GEN-LAST:event_cbTipoProdutoAncestorAdded
+
+    private void cbTipoProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbTipoProdutoMouseClicked
+        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        List<TipoDeProduto> lista = dao.Listar();
+        cbTipoProduto.removeAllItems();
+        for(TipoDeProduto tp : lista){
+        cbTipoProduto.addItem(tp);        
+        }
+    }//GEN-LAST:event_cbTipoProdutoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -596,7 +681,7 @@ public class Estoque extends javax.swing.JFrame {
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JComboBox<String> cbTipoProduto;
+    private javax.swing.JComboBox cbTipoProduto;
     private javax.swing.JTextField idProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
