@@ -106,17 +106,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="usuario">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Usuario"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuarioActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="senha">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPass"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaActionPerformed"/>
           </Events>

@@ -64,14 +64,12 @@ public class login extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("                                                                        LOGIN");
 
-        usuario.setText("Usuario");
         usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioActionPerformed(evt);
             }
         });
 
-        senha.setText("jPass");
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
@@ -157,49 +155,54 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
-        String sql = "select * from employee where login=? and employeePassword=?";
-        try {
-            pst = conn.prepareStatement(sql); // Inicializa o PreparedStatement
-            pst.setString(1, usuario.getText());
-            pst.setString(2, new String(senha.getPassword()));
-
-            rs = pst.executeQuery();
-            if (rs.next()) {
-
-                
-                if(rs.getInt("fk_idEmployeeLevel") == 5 || rs.getInt("fk_idEmployeeLevel") == 1){
-                
-                area_de_trabalho novaTela = new area_de_trabalho();
-                novaTela.usuarioLogado = rs.getString("fullName");
-                JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!\n" + novaTela.usuarioLogado);
-                novaTela.setVisible(true);
-                }
-                else if(rs.getInt("fk_idEmployeeLevel") == 2 || rs.getInt("fk_idEmployeeLevel") == 3 || rs.getInt("fk_idEmployeeLevel") == 4){
-                
-                area_de_trabalho novaTela = new area_de_trabalho();
-                novaTela.usuarioLogado = rs.getString("fullName");
-                novaTela.menuConsultarFuncionarios.setVisible(false);
-                novaTela.menuCadastrarFuncionarios.setVisible(false);
-                JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!\n" + novaTela.usuarioLogado);
-                novaTela.setVisible(true);
-                }
-                rs.close();
-                pst.close();
-                // Fecha a tela de login apos logar
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
+                String sql = "select * from employee where login=? and employeePassword=?";
             try {
-                if (rs != null) rs.close();
-                if (pst != null) pst.close();
+                pst = conn.prepareStatement(sql); // Inicializa o PreparedStatement
+                pst.setString(1, usuario.getText());
+                pst.setString(2, new String(senha.getPassword()));
+
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    area_de_trabalho novaTela = new area_de_trabalho();
+                    novaTela.usuarioLogado = rs.getString("fullName");
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!\n" + novaTela.usuarioLogado);
+
+                    int employeeLevel = rs.getInt("fk_idEmployeeLevel");
+                    
+                    if(employeeLevel == 5){
+                        // Acesso total para admin
+                    } else if(employeeLevel == 2 || employeeLevel == 3 || employeeLevel == 4){
+                        novaTela.menuConsultarFuncionarios.setEnabled(false);
+                        novaTela.menuCadastrarFuncionarios.setEnabled(false);
+                        novaTela.menuHistoricoDeVendas.setEnabled(false);               
+                        novaTela.menuCadastrarSexualidades.setVisible(false);
+                        novaTela.menuConsultarSexualidades.setVisible(false);
+                        novaTela.menuTiposDeProduto.setVisible(false);
+                        novaTela.menuConsultarNivel.setVisible(false);
+                        novaTela.menuCadastrarNivel.setVisible(false);
+                    } else if(employeeLevel == 1){
+                        novaTela.menuCadastrarSexualidades.setEnabled(false);
+                        novaTela.menuTiposDeProduto.setVisible(false);
+                        novaTela.menuConsultarSexualidades.setEnabled(false);
+                        novaTela.menuConsultarNivel.setEnabled(false);
+                        novaTela.menuCadastrarNivel.setEnabled(false);
+                    }
+                        novaTela.setVisible(true);
+                        this.dispose(); // Fecha a tela de login apos logar
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos");
+                }
             } catch (Exception e) {
-                // Handle exception if needed
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar realizar o login. Tente novamente.");
+                e.printStackTrace(); // Registra o erro para depuração
+            } finally {
+                try {
+                    if (rs != null) rs.close();
+                    if (pst != null) pst.close();
+                } catch (Exception e) {
+                    // Log ou tratamento adicional se necessário
+                }
             }
-        }
     }//GEN-LAST:event_EntrarActionPerformed
 
     private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
