@@ -46,7 +46,7 @@ public class login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Entrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LOGIN");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -145,6 +145,7 @@ public class login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -165,15 +166,27 @@ public class login extends javax.swing.JFrame {
             rs = pst.executeQuery();
             if (rs.next()) {
 
+                
+                if(rs.getInt("fk_idEmployeeLevel") == 5 || rs.getInt("fk_idEmployeeLevel") == 1){
+                
+                area_de_trabalho novaTela = new area_de_trabalho();
+                novaTela.usuarioLogado = rs.getString("fullName");
+                JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!\n" + novaTela.usuarioLogado);
+                novaTela.setVisible(true);
+                }
+                else if(rs.getInt("fk_idEmployeeLevel") == 2 || rs.getInt("fk_idEmployeeLevel") == 3 || rs.getInt("fk_idEmployeeLevel") == 4){
+                
+                area_de_trabalho novaTela = new area_de_trabalho();
+                novaTela.usuarioLogado = rs.getString("fullName");
+                novaTela.menuConsultarFuncionarios.setVisible(false);
+                novaTela.menuCadastrarFuncionarios.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!\n" + novaTela.usuarioLogado);
+                novaTela.setVisible(true);
+                }
                 rs.close();
                 pst.close();
-
-                // Abra a nova tela aqui
-                area_de_trabalho novaTela = new area_de_trabalho();
-                novaTela.setVisible(true);
-
-                // Opcional: Feche a tela de login
-                this.dispose(); // se o Login for um JFrame
+                // Fecha a tela de login apos logar
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos");
             }
