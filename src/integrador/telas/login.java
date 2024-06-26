@@ -64,12 +64,14 @@ public class login extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("                                                                        LOGIN");
 
+        usuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioActionPerformed(evt);
             }
         });
 
+        senha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
