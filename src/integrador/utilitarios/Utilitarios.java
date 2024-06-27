@@ -2,12 +2,13 @@ package integrador.utilitarios;
 
 import java.awt.Component;
 import java.awt.Toolkit;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Utilitarios {
-    
+
     /**
      * Este método 'InserirIcone' é usado para definir o ícone de uma janela
      * JFrame. Ele recebe um JFrame como parâmetro e tenta definir seu ícone de
@@ -21,15 +22,17 @@ public class Utilitarios {
             System.out.println(ex.toString());
         }
     }
-    
-    public void LimpaTela(JPanel container){
+
+    public void LimpaTela(JPanel container) {
         Component conponents[] = container.getComponents();
-        
-        for(Component component : conponents){
-            if(component instanceof JTextField){
-                ((JTextField)component).setText(null);
+
+        for (Component component : conponents) {
+            if (component instanceof JTextField) {
+                ((JTextField) component).setText(null);
+            } else if (component instanceof JComboBox) {
+                ((JComboBox<?>) component).setSelectedIndex(-1);
             }
         }
-        
+
     }
 }

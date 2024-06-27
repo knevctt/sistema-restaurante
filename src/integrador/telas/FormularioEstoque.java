@@ -218,6 +218,8 @@ public class FormularioEstoque extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
         tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(

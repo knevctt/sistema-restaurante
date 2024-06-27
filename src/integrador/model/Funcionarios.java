@@ -50,20 +50,20 @@ public class Funcionarios {
         this.employeePassword = employeePassword;
     }
 
-    public int getFk_idEmployeeLevel() {
-        return fk_idEmployeeLevel;
+    public Sexualidades getSexualidades() {
+        return sexualidades;
     }
 
-    public void setFk_idEmployeeLevel(int fk_idEmployeeLevel) {
-        this.fk_idEmployeeLevel = fk_idEmployeeLevel;
+    public void setSexualidades(Sexualidades sexualidade) {
+        this.sexualidades = sexualidade;
     }
 
-    public int getFk_idEmployeeSex() {
-        return fk_idEmployeeSex;
+    public NivelAcesso getNivelAcesso() {
+        return nivelacesso;
     }
 
-    public void setFk_idEmployeeSex(int fk_idEmployeeSex) {
-        this.fk_idEmployeeSex = fk_idEmployeeSex;
+    public void setNivelAcesso(NivelAcesso nivelacesso) {
+        this.nivelacesso = nivelacesso;
     }
 
     private int idEmployee;
@@ -72,7 +72,7 @@ public class Funcionarios {
     private String CPF;
     private String login;
     private String employeePassword;
-    private int fk_idEmployeeLevel;
-    private int fk_idEmployeeSex;
+    private NivelAcesso nivelacesso;
+    private Sexualidades sexualidades;
     
 }

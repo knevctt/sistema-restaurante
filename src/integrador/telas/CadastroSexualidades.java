@@ -4,36 +4,34 @@
  */
 package integrador.telas;
 
-import integrador.dao.TipoDeProdutosDAO;
-import integrador.dao.funcionariosDAO;
-import integrador.model.Funcionarios;
-import integrador.model.TipoDeProduto;
+import integrador.dao.SexualidadesDAO;
+import integrador.model.Sexualidades;
 import javax.swing.JOptionPane;
 import integrador.utilitarios.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class TipoDeProdutos extends javax.swing.JFrame {
+public class CadastroSexualidades extends javax.swing.JFrame {
 
     /**
      * Creates new form funcionarios
      */
     
     public void listar(){
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        List<TipoDeProduto> lista = dao.Listar();
+        SexualidadesDAO dao = new SexualidadesDAO();
+        List<Sexualidades> lista = dao.Listar();
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(TipoDeProduto f : lista){
+        for(Sexualidades f : lista){
             dados.addRow(new Object[]{
-                f.getIdProductType(),
-                f.getProductType(),
+                f.getIdSex(),
+                f.getSexName(),
             });
         }
     }
     
-    public TipoDeProdutos() {
+    public CadastroSexualidades() {
         initComponents();
     }
 
@@ -46,28 +44,28 @@ public class TipoDeProdutos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PainelTipoProdutos = new javax.swing.JPanel();
+        PainelTipoSexualidade = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PainelGuiasTipoProdutos = new javax.swing.JTabbedPane();
-        CadastrarTipoProdutos = new javax.swing.JPanel();
+        PainelGuiasTipoSexualidade = new javax.swing.JTabbedPane();
+        CadastrarTipoSexualidade = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        idProduto = new javax.swing.JTextField();
-        tipoProdutoDescricao = new javax.swing.JTextField();
+        txtIdSexo = new javax.swing.JTextField();
+        txtSexualidade = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         botaoSalvar = new javax.swing.JButton();
         botaoPesquisarTipoDeProduto = new javax.swing.JButton();
         botaoNovo = new javax.swing.JButton();
         botaoEditar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
-        ConsultarTipoProdutos = new javax.swing.JPanel();
+        ConsultarTipoSexualidade = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        consultaTipoProdutos = new javax.swing.JTextField();
-        botaoPesquisarTipoProdutos = new javax.swing.JButton();
+        consultaTipoSexualidade = new javax.swing.JTextField();
+        btnPesquisarSexualidade = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("TipoDeProdutos");
+        setTitle("Formulario sexualidades");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -75,52 +73,52 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        PainelTipoProdutos.setBackground(new java.awt.Color(0, 0, 0));
-        PainelTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PainelTipoSexualidade.setBackground(new java.awt.Color(0, 0, 0));
+        PainelTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(207, 181, 59));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Tipo de Produtos");
+        jLabel1.setText("Cadastro sexualidades");
 
-        javax.swing.GroupLayout PainelTipoProdutosLayout = new javax.swing.GroupLayout(PainelTipoProdutos);
-        PainelTipoProdutos.setLayout(PainelTipoProdutosLayout);
-        PainelTipoProdutosLayout.setHorizontalGroup(
-            PainelTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PainelTipoSexualidadeLayout = new javax.swing.GroupLayout(PainelTipoSexualidade);
+        PainelTipoSexualidade.setLayout(PainelTipoSexualidadeLayout);
+        PainelTipoSexualidadeLayout.setHorizontalGroup(
+            PainelTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
         );
-        PainelTipoProdutosLayout.setVerticalGroup(
-            PainelTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelTipoProdutosLayout.createSequentialGroup()
+        PainelTipoSexualidadeLayout.setVerticalGroup(
+            PainelTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelTipoSexualidadeLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        CadastrarTipoProdutos.setBackground(new java.awt.Color(204, 204, 204));
-        CadastrarTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CadastrarTipoProdutos.setPreferredSize(new java.awt.Dimension(1100, 700));
+        CadastrarTipoSexualidade.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CadastrarTipoSexualidade.setPreferredSize(new java.awt.Dimension(1100, 700));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
-        idProduto.setEditable(false);
-        idProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtIdSexo.setEditable(false);
+        txtIdSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIdSexo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        tipoProdutoDescricao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tipoProdutoDescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tipoProdutoDescricao.addActionListener(new java.awt.event.ActionListener() {
+        txtSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtSexualidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtSexualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoProdutoDescricaoActionPerformed(evt);
+                txtSexualidadeActionPerformed(evt);
             }
         });
-        tipoProdutoDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSexualidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tipoProdutoDescricaoKeyPressed(evt);
+                txtSexualidadeKeyPressed(evt);
             }
         });
 
@@ -177,11 +175,11 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout CadastrarTipoProdutosLayout = new javax.swing.GroupLayout(CadastrarTipoProdutos);
-        CadastrarTipoProdutos.setLayout(CadastrarTipoProdutosLayout);
-        CadastrarTipoProdutosLayout.setHorizontalGroup(
-            CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarTipoProdutosLayout.createSequentialGroup()
+        javax.swing.GroupLayout CadastrarTipoSexualidadeLayout = new javax.swing.GroupLayout(CadastrarTipoSexualidade);
+        CadastrarTipoSexualidade.setLayout(CadastrarTipoSexualidadeLayout);
+        CadastrarTipoSexualidadeLayout.setHorizontalGroup(
+            CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastrarTipoSexualidadeLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,31 +189,31 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastrarTipoProdutosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastrarTipoSexualidadeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(idProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addComponent(txtSexualidade, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoPesquisarTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        CadastrarTipoProdutosLayout.setVerticalGroup(
-            CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarTipoProdutosLayout.createSequentialGroup()
+        CadastrarTipoSexualidadeLayout.setVerticalGroup(
+            CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastrarTipoSexualidadeLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addGroup(CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(idProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTipoDeProduto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                .addGroup(CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
                     .addComponent(botaoEditar)
@@ -223,31 +221,31 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        PainelGuiasTipoProdutos.addTab("Cadastrar tipo de produtos", CadastrarTipoProdutos);
+        PainelGuiasTipoSexualidade.addTab("Cadastrar tipo de sexualidade", CadastrarTipoSexualidade);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setText("Tipo de produto:");
+        jLabel11.setText("Tipo de sexualidade:");
 
-        consultaTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        consultaTipoProdutos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        consultaTipoProdutos.addActionListener(new java.awt.event.ActionListener() {
+        consultaTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        consultaTipoSexualidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        consultaTipoSexualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultaTipoProdutosActionPerformed(evt);
+                consultaTipoSexualidadeActionPerformed(evt);
             }
         });
-        consultaTipoProdutos.addKeyListener(new java.awt.event.KeyAdapter() {
+        consultaTipoSexualidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                consultaTipoProdutosKeyReleased(evt);
+                consultaTipoSexualidadeKeyReleased(evt);
             }
         });
 
-        botaoPesquisarTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaoPesquisarTipoProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
-        botaoPesquisarTipoProdutos.setText("Pesquisar");
-        botaoPesquisarTipoProdutos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        botaoPesquisarTipoProdutos.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisarSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPesquisarSexualidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
+        btnPesquisarSexualidade.setText("Pesquisar");
+        btnPesquisarSexualidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnPesquisarSexualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoPesquisarTipoProdutosActionPerformed(evt);
+                btnPesquisarSexualidadeActionPerformed(evt);
             }
         });
 
@@ -278,51 +276,51 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabela);
 
-        javax.swing.GroupLayout ConsultarTipoProdutosLayout = new javax.swing.GroupLayout(ConsultarTipoProdutos);
-        ConsultarTipoProdutos.setLayout(ConsultarTipoProdutosLayout);
-        ConsultarTipoProdutosLayout.setHorizontalGroup(
-            ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+        javax.swing.GroupLayout ConsultarTipoSexualidadeLayout = new javax.swing.GroupLayout(ConsultarTipoSexualidade);
+        ConsultarTipoSexualidade.setLayout(ConsultarTipoSexualidadeLayout);
+        ConsultarTipoSexualidadeLayout.setHorizontalGroup(
+            ConsultarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarTipoSexualidadeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ConsultarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+                    .addGroup(ConsultarTipoSexualidadeLayout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(consultaTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisarTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 201, Short.MAX_VALUE)))
+                        .addComponent(btnPesquisarSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 157, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        ConsultarTipoProdutosLayout.setVerticalGroup(
-            ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+        ConsultarTipoSexualidadeLayout.setVerticalGroup(
+            ConsultarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarTipoSexualidadeLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ConsultarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoPesquisarTipoProdutos))
+                    .addComponent(consultaTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarSexualidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PainelGuiasTipoProdutos.addTab("Consulta de tipo de produtos", ConsultarTipoProdutos);
+        PainelGuiasTipoSexualidade.addTab("Consulta de tipo de sexualidade", ConsultarTipoSexualidade);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelTipoProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PainelGuiasTipoProdutos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(PainelTipoSexualidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PainelGuiasTipoSexualidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PainelTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PainelGuiasTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PainelGuiasTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -337,113 +335,113 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         u.InserirIcone(this);
     }//GEN-LAST:event_formWindowActivated
 
-    private void botaoPesquisarTipoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTipoProdutosActionPerformed
-        String productType = "%" + consultaTipoProdutos.getText() + "%";
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        List<TipoDeProduto> lista = dao.Filtrar(productType);
+    private void btnPesquisarSexualidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarSexualidadeActionPerformed
+        String sexName = "%" + consultaTipoSexualidade.getText() + "%";
+        SexualidadesDAO dao = new SexualidadesDAO();
+        List<Sexualidades> lista = dao.Filtrar(sexName);
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(TipoDeProduto f : lista){
+        for(Sexualidades f : lista){
             dados.addRow(new Object[]{
-                f.getIdProductType(),
-                f.getProductType(),
+                f.getIdSex(),
+                f.getSexName(),
             });
         }
     
 
-    }//GEN-LAST:event_botaoPesquisarTipoProdutosActionPerformed
+    }//GEN-LAST:event_btnPesquisarSexualidadeActionPerformed
 
-    private void consultaTipoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaTipoProdutosActionPerformed
+    private void consultaTipoSexualidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaTipoSexualidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_consultaTipoProdutosActionPerformed
+    }//GEN-LAST:event_consultaTipoSexualidadeActionPerformed
 
-    private void consultaTipoProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultaTipoProdutosKeyReleased
-        String productType = "%" + consultaTipoProdutos.getText() + "%";
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        List<TipoDeProduto> lista = dao.Filtrar(productType);
+    private void consultaTipoSexualidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultaTipoSexualidadeKeyReleased
+        String sexName = "%" + consultaTipoSexualidade.getText() + "%";
+        SexualidadesDAO dao = new SexualidadesDAO();
+        List<Sexualidades> lista = dao.Filtrar(sexName);
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(TipoDeProduto f : lista){
+        for(Sexualidades f : lista){
             dados.addRow(new Object[]{
-                f.getIdProductType(),
-                f.getProductType(),
+                f.getIdSex(),
+                f.getSexName(),
             });
         }
-    }//GEN-LAST:event_consultaTipoProdutosKeyReleased
+    }//GEN-LAST:event_consultaTipoSexualidadeKeyReleased
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        PainelGuiasTipoProdutos.setSelectedIndex(0);
-        idProduto.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
-        tipoProdutoDescricao.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
+        PainelGuiasTipoSexualidade.setSelectedIndex(0);
+        txtIdSexo.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        txtSexualidade.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        TipoDeProduto obj = new TipoDeProduto();
-        obj.setIdProductType(Integer.valueOf(idProduto.getText()));
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        Sexualidades obj = new Sexualidades();
+        obj.setIdSex(Integer.valueOf(txtIdSexo.getText()));
+        SexualidadesDAO dao = new SexualidadesDAO();
         dao.Excluir(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarTipoSexualidade);
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
 
-        TipoDeProduto obj = new TipoDeProduto();
-        obj.setProductType(tipoProdutoDescricao.getText());
-        obj.setIdProductType(Integer.valueOf(idProduto.getText()));       
+        Sexualidades obj = new Sexualidades();
+        obj.setSexName(txtSexualidade.getText());
+        obj.setIdSex(Integer.valueOf(txtIdSexo.getText()));       
         
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        SexualidadesDAO dao = new SexualidadesDAO();
         dao.Editar(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarTipoSexualidade);
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     private void botaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoActionPerformed
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarTipoSexualidade);
     }//GEN-LAST:event_botaoNovoActionPerformed
 
     private void botaoPesquisarTipoDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTipoDeProdutoActionPerformed
-        String productType = tipoProdutoDescricao.getText();
-        TipoDeProduto obj = new TipoDeProduto();
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        obj = dao.BuscarTipoDeProdutos(productType);
-        if(obj.getProductType() != null){
-            idProduto.setText(String.valueOf(obj.getIdProductType()));
-            tipoProdutoDescricao.setText(obj.getProductType());
+        String sexName = txtSexualidade.getText();
+        Sexualidades obj = new Sexualidades();
+        SexualidadesDAO dao = new SexualidadesDAO();
+        obj = dao.BuscarTipoDeSexualidade(sexName);
+        if(obj.getSexName() != null){
+            txtIdSexo.setText(String.valueOf(obj.getIdSex()));
+            txtSexualidade.setText(obj.getSexName());
             }else{
-            JOptionPane.showMessageDialog(null, "Tipo de produto nao encontrado");
+            JOptionPane.showMessageDialog(null, "Tipo de sexualidade nao encontrado");
         }
     }//GEN-LAST:event_botaoPesquisarTipoDeProdutoActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        TipoDeProduto obj = new TipoDeProduto();
-        obj.setProductType(tipoProdutoDescricao.getText());
+    Sexualidades obj = new Sexualidades();
+        obj.setSexName(txtSexualidade.getText());
         
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        SexualidadesDAO dao = new SexualidadesDAO();
         dao.Salvar(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarTipoSexualidade);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
-    private void tipoProdutoDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tipoProdutoDescricaoKeyPressed
+    private void txtSexualidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSexualidadeKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String productType = tipoProdutoDescricao.getText();
-        TipoDeProduto obj = new TipoDeProduto();
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        obj = dao.BuscarTipoDeProdutos(productType);
-        if(obj.getProductType() != null){
-            idProduto.setText(String.valueOf(obj.getIdProductType()));
-            tipoProdutoDescricao.setText(obj.getProductType());
-                }else{
+            String sexName = txtSexualidade.getText();
+            Sexualidades obj = new Sexualidades();
+            SexualidadesDAO dao = new SexualidadesDAO();
+            obj = dao.BuscarTipoDeSexualidade(sexName);
+        if(obj.getSexName() != null){
+            txtIdSexo.setText(String.valueOf(obj.getIdSex()));
+            txtSexualidade.setText(obj.getSexName());
+            }else{
                 JOptionPane.showMessageDialog(null, "Tipo de produto nao encontrado");
             }
         }
-    }//GEN-LAST:event_tipoProdutoDescricaoKeyPressed
+    }//GEN-LAST:event_txtSexualidadeKeyPressed
 
-    private void tipoProdutoDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoProdutoDescricaoActionPerformed
+    private void txtSexualidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexualidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tipoProdutoDescricaoActionPerformed
+    }//GEN-LAST:event_txtSexualidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,14 +460,18 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSexualidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSexualidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSexualidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSexualidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -478,30 +480,30 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TipoDeProdutos().setVisible(true);
+                new CadastroSexualidades().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CadastrarTipoProdutos;
-    private javax.swing.JPanel ConsultarTipoProdutos;
-    private javax.swing.JTabbedPane PainelGuiasTipoProdutos;
-    private javax.swing.JPanel PainelTipoProdutos;
+    private javax.swing.JPanel CadastrarTipoSexualidade;
+    private javax.swing.JPanel ConsultarTipoSexualidade;
+    private javax.swing.JTabbedPane PainelGuiasTipoSexualidade;
+    private javax.swing.JPanel PainelTipoSexualidade;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoNovo;
     private javax.swing.JButton botaoPesquisarTipoDeProduto;
-    private javax.swing.JButton botaoPesquisarTipoProdutos;
     private javax.swing.JButton botaoSalvar;
-    private javax.swing.JTextField consultaTipoProdutos;
-    private javax.swing.JTextField idProduto;
+    private javax.swing.JButton btnPesquisarSexualidade;
+    private javax.swing.JTextField consultaTipoSexualidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;
-    private javax.swing.JTextField tipoProdutoDescricao;
+    private javax.swing.JTextField txtIdSexo;
+    private javax.swing.JTextField txtSexualidade;
     // End of variables declaration//GEN-END:variables
 }

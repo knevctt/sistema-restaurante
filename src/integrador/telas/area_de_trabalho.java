@@ -8,16 +8,12 @@ import integrador.utilitarios.Utilitarios;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author knevc
- */
 public class area_de_trabalho extends javax.swing.JFrame {
 
-    /**
-     * Creates new form tela_principal
-     */
+    public String usuarioLogado;
+    
     public area_de_trabalho() {
         initComponents();
     }
@@ -38,17 +34,39 @@ public class area_de_trabalho extends javax.swing.JFrame {
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lblLogado = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
-        FuncionariosMenu = new javax.swing.JMenu();
-        EstoqueMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        ClientesMenu = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        FuncionariosMenu = new javax.swing.JMenu();
+        menuCadastrarFuncionarios = new javax.swing.JMenuItem();
+        menuConsultarFuncionarios = new javax.swing.JMenuItem();
+        menuSexualidade = new javax.swing.JMenu();
+        menuConsultarSexualidades = new javax.swing.JMenuItem();
+        menuCadastrarSexualidades = new javax.swing.JMenuItem();
+        menuNivelAcesso = new javax.swing.JMenu();
+        menuCadastrarNivel = new javax.swing.JMenuItem();
+        menuConsultarNivel = new javax.swing.JMenuItem();
+        EstoqueMenu = new javax.swing.JMenu();
+        menuFormularioDeEstoque = new javax.swing.JMenuItem();
+        menuTiposDeProduto = new javax.swing.JMenuItem();
+        menuEstoque = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         PedidosMenu = new javax.swing.JMenu();
+        menuFazerPedido = new javax.swing.JMenuItem();
+        menuFinalizarPedido = new javax.swing.JMenuItem();
         VendasMenu = new javax.swing.JMenu();
+        menuRelatorioVendasDiario = new javax.swing.JMenuItem();
+        menuHistoricoDeVendas = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        menutTrocarUsuario = new javax.swing.JMenuItem();
         SairMenu = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("TELA PRINCIPAL");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -56,29 +74,156 @@ public class area_de_trabalho extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(38, 35, 34));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(242, 229, 215));
+        jLabel1.setText("Usuario:");
+
+        lblLogado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblLogado.setForeground(new java.awt.Color(242, 229, 215));
+        lblLogado.setText("knevctt");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLogado, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1550, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLogado, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+        );
+
+        PapelDeParedeMenu.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout PapelDeParedeMenuLayout = new javax.swing.GroupLayout(PapelDeParedeMenu);
         PapelDeParedeMenu.setLayout(PapelDeParedeMenuLayout);
         PapelDeParedeMenuLayout.setHorizontalGroup(
             PapelDeParedeMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1920, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PapelDeParedeMenuLayout.setVerticalGroup(
             PapelDeParedeMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1040, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PapelDeParedeMenuLayout.createSequentialGroup()
+                .addGap(0, 1011, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         BarraMenu.setFont(new java.awt.Font("MonoLisa-Black", 0, 18)); // NOI18N
         BarraMenu.setPreferredSize(new java.awt.Dimension(289, 40));
 
+        ClientesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes icone.png"))); // NOI18N
+        ClientesMenu.setText("Clientes");
+
+        jMenuItem2.setText("Cadastrar cliente");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        ClientesMenu.add(jMenuItem2);
+
+        jMenuItem3.setText("Consulta de clientes");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        ClientesMenu.add(jMenuItem3);
+
+        BarraMenu.add(ClientesMenu);
+
         FuncionariosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconePessoas.png"))); // NOI18N
         FuncionariosMenu.setText("Funcionarios");
+
+        menuCadastrarFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuCadastrarFuncionarios.setText("Cadastrar funcionarios");
+        menuCadastrarFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastrarFuncionariosActionPerformed(evt);
+            }
+        });
+        FuncionariosMenu.add(menuCadastrarFuncionarios);
+
+        menuConsultarFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuConsultarFuncionarios.setText("Consultar funcionarios");
+        menuConsultarFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultarFuncionariosActionPerformed(evt);
+            }
+        });
+        FuncionariosMenu.add(menuConsultarFuncionarios);
+
+        menuSexualidade.setText("Formulario sexualidade");
+
+        menuConsultarSexualidades.setText("Consultar sexualidades");
+        menuSexualidade.add(menuConsultarSexualidades);
+
+        menuCadastrarSexualidades.setText("Cadastrar sexualidades");
+        menuCadastrarSexualidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastrarSexualidadesActionPerformed(evt);
+            }
+        });
+        menuSexualidade.add(menuCadastrarSexualidades);
+
+        FuncionariosMenu.add(menuSexualidade);
+
+        menuNivelAcesso.setText("Formulario nivel de acesso");
+
+        menuCadastrarNivel.setText("Cadastro de nivel de acesso");
+        menuNivelAcesso.add(menuCadastrarNivel);
+
+        menuConsultarNivel.setText("Consulta de nivel de acesso");
+        menuConsultarNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultarNivelActionPerformed(evt);
+            }
+        });
+        menuNivelAcesso.add(menuConsultarNivel);
+
+        FuncionariosMenu.add(menuNivelAcesso);
+
         BarraMenu.add(FuncionariosMenu);
 
         EstoqueMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/estoque.png"))); // NOI18N
         EstoqueMenu.setText("Estoque");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem1.setText("Controle de Estoque");
+        menuFormularioDeEstoque.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuFormularioDeEstoque.setText("Cadastro de produtos");
+        menuFormularioDeEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFormularioDeEstoqueActionPerformed(evt);
+            }
+        });
+        EstoqueMenu.add(menuFormularioDeEstoque);
+
+        menuTiposDeProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuTiposDeProduto.setText("Cadastro de tipo de produtos");
+        menuTiposDeProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTiposDeProdutoActionPerformed(evt);
+            }
+        });
+        EstoqueMenu.add(menuTiposDeProduto);
+
+        menuEstoque.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuEstoque.setText("Controle de estoque");
+        menuEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEstoqueActionPerformed(evt);
+            }
+        });
+        EstoqueMenu.add(menuEstoque);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem1.setText("Consulta de produtos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -86,19 +231,55 @@ public class area_de_trabalho extends javax.swing.JFrame {
         });
         EstoqueMenu.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem2.setText("Consulta de Produtos");
-        EstoqueMenu.add(jMenuItem2);
-
         BarraMenu.add(EstoqueMenu);
 
         PedidosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pedido.png"))); // NOI18N
         PedidosMenu.setText("Pedidos");
+
+        menuFazerPedido.setText("Fazer Pedido");
+        menuFazerPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFazerPedidoActionPerformed(evt);
+            }
+        });
+        PedidosMenu.add(menuFazerPedido);
+
+        menuFinalizarPedido.setText("Finalizar Pedido");
+        menuFinalizarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFinalizarPedidoActionPerformed(evt);
+            }
+        });
+        PedidosMenu.add(menuFinalizarPedido);
+
         BarraMenu.add(PedidosMenu);
 
         VendasMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas.png"))); // NOI18N
         VendasMenu.setText("Vendas");
+
+        menuRelatorioVendasDiario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuRelatorioVendasDiario.setText("Relatorio de Vendas do dia");
+        VendasMenu.add(menuRelatorioVendasDiario);
+
+        menuHistoricoDeVendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menuHistoricoDeVendas.setText("Histórico de Vendas");
+        VendasMenu.add(menuHistoricoDeVendas);
+
         BarraMenu.add(VendasMenu);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone configurações.png"))); // NOI18N
+        jMenu1.setText("Configurações");
+
+        menutTrocarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menutTrocarUsuario.setText("Trocar Usuario");
+        menutTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menutTrocarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menutTrocarUsuario);
+
+        BarraMenu.add(jMenu1);
 
         SairMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
         SairMenu.setText("Sair");
@@ -128,23 +309,91 @@ public class area_de_trabalho extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void menuFormularioDeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFormularioDeEstoqueActionPerformed
+        CadastroProduto cp = new CadastroProduto();
+        cp.setVisible(true);
+    }//GEN-LAST:event_menuFormularioDeEstoqueActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setExtendedState(this.MAXIMIZED_BOTH);
-        
+        lblLogado.setText(usuarioLogado);
         //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
         Utilitarios u = new Utilitarios();
         u.InserirIcone(this);
     }//GEN-LAST:event_formWindowActivated
 
+    private void menuCadastrarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarFuncionariosActionPerformed
+        funcionarios f = new funcionarios();
+        f.setVisible(true);
+    }//GEN-LAST:event_menuCadastrarFuncionariosActionPerformed
+
+    private void menuFinalizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFinalizarPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuFinalizarPedidoActionPerformed
+
+    private void menuFazerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFazerPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuFazerPedidoActionPerformed
+
+    private void menuTiposDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTiposDeProdutoActionPerformed
+        TipoDeProdutos tdp = new TipoDeProdutos();
+        tdp.setVisible(true);
+    }//GEN-LAST:event_menuTiposDeProdutoActionPerformed
+
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        this.dispose(); // fecha o programa
+        int janela = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair do sistema ?");
+        if(janela == 0){
+            System.exit(0);
+        }else if(janela == 2){
+            JOptionPane.showMessageDialog(null, "Cancelando");
+        }   
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void menuEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEstoqueActionPerformed
+        FormularioEstoque fe = new FormularioEstoque();
+        fe.setVisible(true);
+    }//GEN-LAST:event_menuEstoqueActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        CadastroProduto cp = new CadastroProduto();
+        cp.PainelGuiasMenuControle.setSelectedIndex(1);
+        cp.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void menuConsultarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultarFuncionariosActionPerformed
+        funcionarios f = new funcionarios();
+        f.PainelGuiasMenuFuncionarios.setSelectedIndex(1);
+        f.setVisible(true);
+    }//GEN-LAST:event_menuConsultarFuncionariosActionPerformed
+
+    private void menutTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutTrocarUsuarioActionPerformed
+        login l = new login();
+        this.dispose();
+        l.setVisible(true);
+    }//GEN-LAST:event_menutTrocarUsuarioActionPerformed
+
+    private void menuCadastrarSexualidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarSexualidadesActionPerformed
+        CadastroSexualidades cs = new CadastroSexualidades();
+        cs.setVisible(true);
+    }//GEN-LAST:event_menuCadastrarSexualidadesActionPerformed
+
+    private void menuConsultarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultarNivelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuConsultarNivelActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        CadastroClientes c = new CadastroClientes();
+        c.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        CadastroClientes c = new CadastroClientes();
+        c.PainelDeGuias.setSelectedIndex(1);
+        c.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,14 +433,36 @@ public class area_de_trabalho extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenu ClientesMenu;
     private javax.swing.JMenu EstoqueMenu;
     private javax.swing.JMenu FuncionariosMenu;
     private javax.swing.JDesktopPane PapelDeParedeMenu;
     private javax.swing.JMenu PedidosMenu;
     private javax.swing.JMenu SairMenu;
     private javax.swing.JMenu VendasMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblLogado;
+    public javax.swing.JMenuItem menuCadastrarFuncionarios;
+    public javax.swing.JMenuItem menuCadastrarNivel;
+    public javax.swing.JMenuItem menuCadastrarSexualidades;
+    public javax.swing.JMenuItem menuConsultarFuncionarios;
+    public javax.swing.JMenuItem menuConsultarNivel;
+    public javax.swing.JMenuItem menuConsultarSexualidades;
+    private javax.swing.JMenuItem menuEstoque;
+    private javax.swing.JMenuItem menuFazerPedido;
+    private javax.swing.JMenuItem menuFinalizarPedido;
+    private javax.swing.JMenuItem menuFormularioDeEstoque;
+    public javax.swing.JMenuItem menuHistoricoDeVendas;
+    private javax.swing.JMenu menuNivelAcesso;
+    private javax.swing.JMenuItem menuRelatorioVendasDiario;
+    private javax.swing.JMenu menuSexualidade;
+    public javax.swing.JMenuItem menuTiposDeProduto;
+    private javax.swing.JMenuItem menutTrocarUsuario;
     // End of variables declaration//GEN-END:variables
 }

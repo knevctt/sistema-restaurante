@@ -4,36 +4,34 @@
  */
 package integrador.telas;
 
-import integrador.dao.TipoDeProdutosDAO;
-import integrador.dao.funcionariosDAO;
-import integrador.model.Funcionarios;
-import integrador.model.TipoDeProduto;
+import integrador.dao.NivelAcessoDAO;
+import integrador.model.NivelAcesso;
 import javax.swing.JOptionPane;
 import integrador.utilitarios.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class TipoDeProdutos extends javax.swing.JFrame {
+public class CadastroNivelAcesso extends javax.swing.JFrame {
 
     /**
      * Creates new form funcionarios
      */
     
     public void listar(){
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        List<TipoDeProduto> lista = dao.Listar();
+        NivelAcessoDAO dao = new NivelAcessoDAO();
+        List<NivelAcesso> lista = dao.Listar();
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(TipoDeProduto f : lista){
+        for(NivelAcesso na : lista){
             dados.addRow(new Object[]{
-                f.getIdProductType(),
-                f.getProductType(),
+                na.getIdLevel(),
+                na.getAccessLevel(),
             });
         }
     }
     
-    public TipoDeProdutos() {
+    public CadastroNivelAcesso() {
         initComponents();
     }
 
@@ -46,28 +44,28 @@ public class TipoDeProdutos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PainelTipoProdutos = new javax.swing.JPanel();
+        PainelCadastroNivelAcesso = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PainelGuiasTipoProdutos = new javax.swing.JTabbedPane();
-        CadastrarTipoProdutos = new javax.swing.JPanel();
+        PainelGuiasNivelAcesso = new javax.swing.JTabbedPane();
+        CadastrarNivelAcesso = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        idProduto = new javax.swing.JTextField();
-        tipoProdutoDescricao = new javax.swing.JTextField();
+        txtIdNivelAcesso = new javax.swing.JTextField();
+        txtNivelAcesso = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         botaoSalvar = new javax.swing.JButton();
         botaoPesquisarTipoDeProduto = new javax.swing.JButton();
         botaoNovo = new javax.swing.JButton();
         botaoEditar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
-        ConsultarTipoProdutos = new javax.swing.JPanel();
+        ConsultarNivelAcesso = new javax.swing.JPanel();
+        ConsultaNivelAcesso = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        consultaTipoProdutos = new javax.swing.JTextField();
-        botaoPesquisarTipoProdutos = new javax.swing.JButton();
+        btnPesquisarNivelAcesso = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("TipoDeProdutos");
+        setTitle("Formulario cadastro de nivel de acesso");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -75,57 +73,57 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        PainelTipoProdutos.setBackground(new java.awt.Color(0, 0, 0));
-        PainelTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PainelCadastroNivelAcesso.setBackground(new java.awt.Color(0, 0, 0));
+        PainelCadastroNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(207, 181, 59));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Tipo de Produtos");
+        jLabel1.setText("Cadastro de nivel de acesso");
 
-        javax.swing.GroupLayout PainelTipoProdutosLayout = new javax.swing.GroupLayout(PainelTipoProdutos);
-        PainelTipoProdutos.setLayout(PainelTipoProdutosLayout);
-        PainelTipoProdutosLayout.setHorizontalGroup(
-            PainelTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PainelCadastroNivelAcessoLayout = new javax.swing.GroupLayout(PainelCadastroNivelAcesso);
+        PainelCadastroNivelAcesso.setLayout(PainelCadastroNivelAcessoLayout);
+        PainelCadastroNivelAcessoLayout.setHorizontalGroup(
+            PainelCadastroNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
         );
-        PainelTipoProdutosLayout.setVerticalGroup(
-            PainelTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelTipoProdutosLayout.createSequentialGroup()
+        PainelCadastroNivelAcessoLayout.setVerticalGroup(
+            PainelCadastroNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelCadastroNivelAcessoLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        CadastrarTipoProdutos.setBackground(new java.awt.Color(204, 204, 204));
-        CadastrarTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CadastrarTipoProdutos.setPreferredSize(new java.awt.Dimension(1100, 700));
+        CadastrarNivelAcesso.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CadastrarNivelAcesso.setPreferredSize(new java.awt.Dimension(1100, 700));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
-        idProduto.setEditable(false);
-        idProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtIdNivelAcesso.setEditable(false);
+        txtIdNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIdNivelAcesso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        tipoProdutoDescricao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tipoProdutoDescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tipoProdutoDescricao.addActionListener(new java.awt.event.ActionListener() {
+        txtNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNivelAcesso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoProdutoDescricaoActionPerformed(evt);
+                txtNivelAcessoActionPerformed(evt);
             }
         });
-        tipoProdutoDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNivelAcesso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tipoProdutoDescricaoKeyPressed(evt);
+                txtNivelAcessoKeyPressed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Tipo de Produto:");
+        jLabel3.setText("Nivel de acesso:");
 
         botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
@@ -177,11 +175,11 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout CadastrarTipoProdutosLayout = new javax.swing.GroupLayout(CadastrarTipoProdutos);
-        CadastrarTipoProdutos.setLayout(CadastrarTipoProdutosLayout);
-        CadastrarTipoProdutosLayout.setHorizontalGroup(
-            CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarTipoProdutosLayout.createSequentialGroup()
+        javax.swing.GroupLayout CadastrarNivelAcessoLayout = new javax.swing.GroupLayout(CadastrarNivelAcesso);
+        CadastrarNivelAcesso.setLayout(CadastrarNivelAcessoLayout);
+        CadastrarNivelAcessoLayout.setHorizontalGroup(
+            CadastrarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastrarNivelAcessoLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,31 +189,31 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastrarTipoProdutosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastrarNivelAcessoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(idProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addComponent(txtNivelAcesso, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoPesquisarTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        CadastrarTipoProdutosLayout.setVerticalGroup(
-            CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarTipoProdutosLayout.createSequentialGroup()
+        CadastrarNivelAcessoLayout.setVerticalGroup(
+            CadastrarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastrarNivelAcessoLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addGroup(CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(idProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTipoDeProduto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                .addGroup(CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastrarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
                     .addComponent(botaoEditar)
@@ -223,31 +221,31 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        PainelGuiasTipoProdutos.addTab("Cadastrar tipo de produtos", CadastrarTipoProdutos);
+        PainelGuiasNivelAcesso.addTab("Cadastrar nivel de acesso", CadastrarNivelAcesso);
+
+        ConsultaNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConsultaNivelAcesso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        ConsultaNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaNivelAcessoActionPerformed(evt);
+            }
+        });
+        ConsultaNivelAcesso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ConsultaNivelAcessoKeyReleased(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setText("Tipo de produto:");
+        jLabel11.setText("Nivel de acesso:");
 
-        consultaTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        consultaTipoProdutos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        consultaTipoProdutos.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisarNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPesquisarNivelAcesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
+        btnPesquisarNivelAcesso.setText("Pesquisar");
+        btnPesquisarNivelAcesso.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnPesquisarNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultaTipoProdutosActionPerformed(evt);
-            }
-        });
-        consultaTipoProdutos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                consultaTipoProdutosKeyReleased(evt);
-            }
-        });
-
-        botaoPesquisarTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaoPesquisarTipoProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
-        botaoPesquisarTipoProdutos.setText("Pesquisar");
-        botaoPesquisarTipoProdutos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        botaoPesquisarTipoProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoPesquisarTipoProdutosActionPerformed(evt);
+                btnPesquisarNivelAcessoActionPerformed(evt);
             }
         });
 
@@ -260,7 +258,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "TIPO DE PRODUTOS"
+                "ID", "NOME DO NIVEL DE ACESSO"
             }
         ) {
             Class[] types = new Class [] {
@@ -278,51 +276,51 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabela);
 
-        javax.swing.GroupLayout ConsultarTipoProdutosLayout = new javax.swing.GroupLayout(ConsultarTipoProdutos);
-        ConsultarTipoProdutos.setLayout(ConsultarTipoProdutosLayout);
-        ConsultarTipoProdutosLayout.setHorizontalGroup(
-            ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+        javax.swing.GroupLayout ConsultarNivelAcessoLayout = new javax.swing.GroupLayout(ConsultarNivelAcesso);
+        ConsultarNivelAcesso.setLayout(ConsultarNivelAcessoLayout);
+        ConsultarNivelAcessoLayout.setHorizontalGroup(
+            ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarNivelAcessoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+                    .addGroup(ConsultarNivelAcessoLayout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ConsultaNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisarTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 201, Short.MAX_VALUE)))
+                        .addComponent(btnPesquisarNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 192, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        ConsultarTipoProdutosLayout.setVerticalGroup(
-            ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+        ConsultarNivelAcessoLayout.setVerticalGroup(
+            ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarNivelAcessoLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoPesquisarTipoProdutos))
+                    .addComponent(ConsultaNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarNivelAcesso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PainelGuiasTipoProdutos.addTab("Consulta de tipo de produtos", ConsultarTipoProdutos);
+        PainelGuiasNivelAcesso.addTab("Consulta de nivel de acesso", ConsultarNivelAcesso);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelTipoProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PainelGuiasTipoProdutos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(PainelCadastroNivelAcesso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PainelGuiasNivelAcesso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PainelTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelCadastroNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PainelGuiasTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PainelGuiasNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -337,113 +335,111 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         u.InserirIcone(this);
     }//GEN-LAST:event_formWindowActivated
 
-    private void botaoPesquisarTipoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTipoProdutosActionPerformed
-        String productType = "%" + consultaTipoProdutos.getText() + "%";
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        List<TipoDeProduto> lista = dao.Filtrar(productType);
+    private void btnPesquisarNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarNivelAcessoActionPerformed
+        String accessLevel = "%" + ConsultaNivelAcesso.getText() + "%";
+        NivelAcessoDAO dao = new NivelAcessoDAO();
+        List<NivelAcesso> lista = dao.Filtrar(accessLevel);
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(TipoDeProduto f : lista){
+        for(NivelAcesso na : lista){
             dados.addRow(new Object[]{
-                f.getIdProductType(),
-                f.getProductType(),
+                na.getIdLevel(),
+                na.getAccessLevel(),
             });
         }
-    
+    }//GEN-LAST:event_btnPesquisarNivelAcessoActionPerformed
 
-    }//GEN-LAST:event_botaoPesquisarTipoProdutosActionPerformed
-
-    private void consultaTipoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaTipoProdutosActionPerformed
+    private void ConsultaNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaNivelAcessoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_consultaTipoProdutosActionPerformed
+    }//GEN-LAST:event_ConsultaNivelAcessoActionPerformed
 
-    private void consultaTipoProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultaTipoProdutosKeyReleased
-        String productType = "%" + consultaTipoProdutos.getText() + "%";
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        List<TipoDeProduto> lista = dao.Filtrar(productType);
+    private void ConsultaNivelAcessoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ConsultaNivelAcessoKeyReleased
+        String accessLevel = "%" + ConsultaNivelAcesso.getText() + "%";
+        NivelAcessoDAO dao = new NivelAcessoDAO();
+        List<NivelAcesso> lista = dao.Filtrar(accessLevel);
         DefaultTableModel dados = (DefaultTableModel)tabela.getModel();
         dados.setNumRows(0);
-        for(TipoDeProduto f : lista){
+        for(NivelAcesso na : lista){
             dados.addRow(new Object[]{
-                f.getIdProductType(),
-                f.getProductType(),
+                na.getIdLevel(),
+                na.getAccessLevel(),
             });
         }
-    }//GEN-LAST:event_consultaTipoProdutosKeyReleased
+    }//GEN-LAST:event_ConsultaNivelAcessoKeyReleased
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        PainelGuiasTipoProdutos.setSelectedIndex(0);
-        idProduto.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
-        tipoProdutoDescricao.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
+        PainelGuiasNivelAcesso.setSelectedIndex(0);
+        txtIdNivelAcesso.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        txtNivelAcesso.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        TipoDeProduto obj = new TipoDeProduto();
-        obj.setIdProductType(Integer.valueOf(idProduto.getText()));
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        NivelAcesso obj = new NivelAcesso();
+        obj.setIdLevel(Integer.valueOf(txtIdNivelAcesso.getText()));
+        NivelAcessoDAO dao = new NivelAcessoDAO();
         dao.Excluir(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarNivelAcesso);
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
 
-        TipoDeProduto obj = new TipoDeProduto();
-        obj.setProductType(tipoProdutoDescricao.getText());
-        obj.setIdProductType(Integer.valueOf(idProduto.getText()));       
+        NivelAcesso obj = new NivelAcesso();
+        obj.setAccessLevel(txtNivelAcesso.getText());
+        obj.setIdLevel(Integer.valueOf(txtIdNivelAcesso.getText()));       
         
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        NivelAcessoDAO dao = new NivelAcessoDAO();
         dao.Editar(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarNivelAcesso);
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     private void botaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoActionPerformed
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarNivelAcesso);
     }//GEN-LAST:event_botaoNovoActionPerformed
 
     private void botaoPesquisarTipoDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTipoDeProdutoActionPerformed
-        String productType = tipoProdutoDescricao.getText();
-        TipoDeProduto obj = new TipoDeProduto();
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        obj = dao.BuscarTipoDeProdutos(productType);
-        if(obj.getProductType() != null){
-            idProduto.setText(String.valueOf(obj.getIdProductType()));
-            tipoProdutoDescricao.setText(obj.getProductType());
+        String accessLevel = txtNivelAcesso.getText();
+        NivelAcesso obj = new NivelAcesso();
+        NivelAcessoDAO dao = new NivelAcessoDAO();
+        obj = dao.BuscarNivelAcesso(accessLevel);
+        if(obj.getAccessLevel() != null){
+            txtIdNivelAcesso.setText(String.valueOf(obj.getIdLevel()));
+            txtNivelAcesso.setText(obj.getAccessLevel());
             }else{
-            JOptionPane.showMessageDialog(null, "Tipo de produto nao encontrado");
+            JOptionPane.showMessageDialog(null, "Nivel de acesso nao encontrado");
         }
     }//GEN-LAST:event_botaoPesquisarTipoDeProdutoActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        TipoDeProduto obj = new TipoDeProduto();
-        obj.setProductType(tipoProdutoDescricao.getText());
+        NivelAcesso obj = new NivelAcesso();
+        obj.setAccessLevel(txtNivelAcesso.getText());
         
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
+        NivelAcessoDAO dao = new NivelAcessoDAO();
         dao.Salvar(obj);
         Utilitarios util = new Utilitarios();
-        util.LimpaTela(CadastrarTipoProdutos);
+        util.LimpaTela(CadastrarNivelAcesso);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
-    private void tipoProdutoDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tipoProdutoDescricaoKeyPressed
+    private void txtNivelAcessoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNivelAcessoKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String productType = tipoProdutoDescricao.getText();
-        TipoDeProduto obj = new TipoDeProduto();
-        TipoDeProdutosDAO dao = new TipoDeProdutosDAO();
-        obj = dao.BuscarTipoDeProdutos(productType);
-        if(obj.getProductType() != null){
-            idProduto.setText(String.valueOf(obj.getIdProductType()));
-            tipoProdutoDescricao.setText(obj.getProductType());
-                }else{
+            String accessLevel = txtNivelAcesso.getText();
+            NivelAcesso obj = new NivelAcesso();
+            NivelAcessoDAO dao = new NivelAcessoDAO();
+            obj = dao.BuscarNivelAcesso(accessLevel);
+        if(obj.getAccessLevel() != null){
+            txtIdNivelAcesso.setText(String.valueOf(obj.getIdLevel()));
+            txtNivelAcesso.setText(obj.getAccessLevel());
+            }else{
                 JOptionPane.showMessageDialog(null, "Tipo de produto nao encontrado");
             }
         }
-    }//GEN-LAST:event_tipoProdutoDescricaoKeyPressed
+    }//GEN-LAST:event_txtNivelAcessoKeyPressed
 
-    private void tipoProdutoDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoProdutoDescricaoActionPerformed
+    private void txtNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNivelAcessoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tipoProdutoDescricaoActionPerformed
+    }//GEN-LAST:event_txtNivelAcessoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,14 +458,26 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroNivelAcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroNivelAcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroNivelAcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TipoDeProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroNivelAcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -478,30 +486,30 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TipoDeProdutos().setVisible(true);
+                new CadastroNivelAcesso().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CadastrarTipoProdutos;
-    private javax.swing.JPanel ConsultarTipoProdutos;
-    private javax.swing.JTabbedPane PainelGuiasTipoProdutos;
-    private javax.swing.JPanel PainelTipoProdutos;
+    private javax.swing.JPanel CadastrarNivelAcesso;
+    private javax.swing.JTextField ConsultaNivelAcesso;
+    private javax.swing.JPanel ConsultarNivelAcesso;
+    private javax.swing.JPanel PainelCadastroNivelAcesso;
+    private javax.swing.JTabbedPane PainelGuiasNivelAcesso;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoNovo;
     private javax.swing.JButton botaoPesquisarTipoDeProduto;
-    private javax.swing.JButton botaoPesquisarTipoProdutos;
     private javax.swing.JButton botaoSalvar;
-    private javax.swing.JTextField consultaTipoProdutos;
-    private javax.swing.JTextField idProduto;
+    private javax.swing.JButton btnPesquisarNivelAcesso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;
-    private javax.swing.JTextField tipoProdutoDescricao;
+    private javax.swing.JTextField txtIdNivelAcesso;
+    private javax.swing.JTextField txtNivelAcesso;
     // End of variables declaration//GEN-END:variables
 }

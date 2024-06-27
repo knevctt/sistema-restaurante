@@ -1,6 +1,8 @@
 package integrador.dao;
 
 import integrador.model.Funcionarios;
+import integrador.model.NivelAcesso;
+import integrador.model.Sexualidades;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -29,17 +31,17 @@ public class funcionariosDAO {
             stmt.setString(3, obj.getCPF());
             stmt.setString(4, obj.getLogin());
             stmt.setString(5, obj.getEmployeePassword());
-            stmt.setInt(6, obj.getFk_idEmployeeLevel());
-            stmt.setInt(7, obj.getFk_idEmployeeSex());
-            //stmt.setBytes(8, obj.getImagem());
+            
+            stmt.setInt(6, obj.getNivelAcesso().getIdLevel());
+            stmt.setInt(7, obj.getSexualidades().getIdSex());
             
             // 3 Passo executar sql
-            stmt.executeUpdate();
+            stmt.execute();
             // 4 fechar conexao
             stmt.close();
             JOptionPane.showMessageDialog(null, "Funcionario Salvo com Sucesso!");
         } catch(SQLException erro){
-            JOptionPane.showMessageDialog(null, "Erro ao salvar o cliente: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao salvar o funcionario: " + erro.getMessage());
         }
     }
     
@@ -54,8 +56,10 @@ public class funcionariosDAO {
             stmt.setString(3, obj.getCPF());
             stmt.setString(4, obj.getLogin());
             stmt.setString(5, obj.getEmployeePassword());
-            stmt.setInt(6, obj.getFk_idEmployeeLevel());
-            stmt.setInt(7, obj.getFk_idEmployeeSex());
+            
+            stmt.setInt(6, obj.getNivelAcesso().getIdLevel());
+            stmt.setInt(7, obj.getSexualidades().getIdSex());
+            
             stmt.setInt(8, obj.getIdEmployee());
             
             // 3 Passo executar sql
@@ -89,74 +93,103 @@ public class funcionariosDAO {
     
     public Funcionarios BuscarFuncionario(String fullName){
         try{
-            String sql = "SELECT * FROM employee WHERE fullname = ?";
+            String sql = 
+            "SELECT e.idEmployee, e.fullName, e.RG, e.CPF, e.login, e.employeePassword, a.accessLevel, s.sexName " +
+            "FROM employee AS e " +
+            "INNER JOIN sex AS s ON (e.fk_idEmployeeSex = s.idSex) " +
+            "INNER JOIN accessLevel AS a ON (e.fk_idEmployeeLevel = a.idLevel) WHERE e.fullName = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, fullName);
             ResultSet rs = stmt.executeQuery();
+            
             Funcionarios obj = new Funcionarios();
+            Sexualidades s = new Sexualidades();
+            NivelAcesso na = new NivelAcesso();
+            
             if(rs.next()){
-                obj.setIdEmployee(rs.getInt("idEmployee"));
-                obj.setFullname(rs.getString("fullname"));
-                obj.setRG(rs.getInt("RG"));
-                obj.setCPF(rs.getString("CPF"));
-                obj.setLogin(rs.getString("login"));
-                obj.setEmployeePassword(rs.getString("employeePassword"));
-                obj.setFk_idEmployeeLevel(rs.getInt("fk_idEmployeeLevel"));
-                obj.setFk_idEmployeeSex(rs.getInt("fk_idEmployeeSex"));
+                obj.setIdEmployee(rs.getInt("e.idEmployee"));
+                obj.setFullname(rs.getString("e.fullname"));
+                obj.setRG(rs.getInt("e.RG"));
+                obj.setCPF(rs.getString("e.CPF"));
+                obj.setLogin(rs.getString("e.login"));
+                obj.setEmployeePassword(rs.getString("e.employeePassword"));
+                
+                na.setAccessLevel(rs.getString("a.accessLevel"));
+                obj.setNivelAcesso(na);
+                
+                s.setSexName(rs.getString("s.sexName"));
+                obj.setSexualidades(s);
+            
             }
             return obj;    
         }catch(SQLException erro){
-           JOptionPane.showMessageDialog(null, "Erro ao buscar o cliente: " + erro.getMessage());
+           JOptionPane.showMessageDialog(null, "Erro ao buscar o funcionario: " + erro.getMessage());
         }
         return null;
     }
-    
-        public List<Funcionarios>Listar(){
-            List<Funcionarios> lista = new ArrayList<>();
-            try{
-                String sql = "SELECT * FROM employee";
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ResultSet rs = stmt.executeQuery();
-                
-                while(rs.next()){
-                    Funcionarios obj = new Funcionarios();
-                    
-                obj.setIdEmployee(rs.getInt("idEmployee"));
-                obj.setFullname(rs.getString("fullname"));
-                obj.setRG(rs.getInt("RG"));
-                obj.setCPF(rs.getString("CPF"));
-                obj.setLogin(rs.getString("login"));
-                obj.setEmployeePassword(rs.getString("employeePassword"));
-                obj.setFk_idEmployeeLevel(rs.getInt("fk_idEmployeeLevel"));
-                obj.setFk_idEmployeeSex(rs.getInt("fk_idEmployeeSex"));
-                lista.add(obj);
-                }
-                return lista;
-            }catch(SQLException erro){
-                JOptionPane.showMessageDialog(null,"Erro ao criar a lista: " + erro);
-            }
-                return null;
+
+public List<Funcionarios> Listar() {
+    List<Funcionarios> lista = new ArrayList<>();
+    try {
+        String sql = "SELECT e.idEmployee, e.fullName, e.RG, e.CPF, e.login, e.employeePassword, a.accessLevel, s.sexName FROM employee AS e INNER JOIN sex AS s ON e.fk_idEmployeeSex = s.idSex INNER JOIN accessLevel AS a ON e.fk_idEmployeeLevel = a.idLevel";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        
+        while (rs.next()) {
+            Funcionarios obj = new Funcionarios();
+            Sexualidades sexu = new Sexualidades(); 
+            NivelAcesso na = new NivelAcesso();
+            
+            obj.setIdEmployee(rs.getInt("e.idEmployee"));
+            obj.setFullname(rs.getString("e.fullName"));
+            obj.setRG(rs.getInt("e.RG"));
+            obj.setCPF(rs.getString("e.CPF"));
+            obj.setLogin(rs.getString("e.login"));
+            obj.setEmployeePassword(rs.getString("e.employeePassword"));
+            
+            na.setAccessLevel(rs.getString("a.accessLevel"));
+            obj.setNivelAcesso(na);
+            sexu.setSexName(rs.getString("s.sexName"));
+            obj.setSexualidades(sexu);
+            
+            lista.add(obj);
+        }
+    } catch (SQLException erro) {
+        JOptionPane.showMessageDialog(null, "Erro ao criar a lista: " + erro);
     }
+    return lista;
+}
+
         
     public List<Funcionarios>Filtrar(String fullname){
             List<Funcionarios> lista = new ArrayList<>();
             try{
-                String sql = "SELECT * FROM employee WHERE fullname like ?";
+                String sql = "SELECT e.idEmployee, e.fullName, e.RG, e.CPF, e.login, e.employeePassword, a.accessLevel, s.sexName " +
+                "FROM employee AS e " +
+                "INNER JOIN sex AS s ON e.fk_idEmployeeSex = s.idSex " +
+                "INNER JOIN accessLevel AS a ON e.fk_idEmployeeLevel = a.idLevel WHERE e.fullname like ?";
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 stmt.setString(1, fullname);
                 ResultSet rs = stmt.executeQuery();
                 
                 while(rs.next()){
-                    Funcionarios obj = new Funcionarios();
-                    
-                obj.setIdEmployee(rs.getInt("idEmployee"));
-                obj.setFullname(rs.getString("fullname"));
-                obj.setRG(rs.getInt("RG"));
-                obj.setCPF(rs.getString("CPF"));
-                obj.setLogin(rs.getString("login"));
-                obj.setEmployeePassword(rs.getString("employeePassword"));
-                obj.setFk_idEmployeeLevel(rs.getInt("fk_idEmployeeLevel"));
-                obj.setFk_idEmployeeSex(rs.getInt("fk_idEmployeeSex"));
+                Funcionarios obj = new Funcionarios();
+                Sexualidades s = new Sexualidades();    
+                NivelAcesso na = new NivelAcesso();
+                
+                obj.setIdEmployee(rs.getInt("e.idEmployee"));
+                obj.setFullname(rs.getString("e.fullname"));
+                obj.setRG(rs.getInt("e.RG"));
+                obj.setCPF(rs.getString("e.CPF"));
+                obj.setLogin(rs.getString("e.login"));
+                obj.setEmployeePassword(rs.getString("e.employeePassword"));
+                
+                na.setAccessLevel(rs.getString("a.accessLevel"));
+                obj.setNivelAcesso(na);
+                
+                s.setSexName(rs.getString("s.sexName"));
+                obj.setSexualidades(s);
+                
                 lista.add(obj);
                 }
                 return lista;
