@@ -943,6 +943,9 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
         });
         txtPesquisaDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPesquisaDescricaoKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPesquisaDescricaoKeyReleased(evt);
             }
@@ -1535,6 +1538,10 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void tabela2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabela2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tabela2MouseClicked
+
+    private void txtPesquisaDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaDescricaoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisaDescricaoKeyPressed
 
     /**
      * @param args the command line arguments

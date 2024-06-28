@@ -111,7 +111,7 @@ public class area_de_trabalho extends javax.swing.JFrame {
         PapelDeParedeMenuLayout.setVerticalGroup(
             PapelDeParedeMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PapelDeParedeMenuLayout.createSequentialGroup()
-                .addGap(0, 1011, Short.MAX_VALUE)
+                .addGap(0, 1014, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -163,6 +163,11 @@ public class area_de_trabalho extends javax.swing.JFrame {
         menuSexualidade.setText("Formulario sexualidade");
 
         menuConsultarSexualidades.setText("Consultar sexualidades");
+        menuConsultarSexualidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultarSexualidadesActionPerformed(evt);
+            }
+        });
         menuSexualidade.add(menuConsultarSexualidades);
 
         menuCadastrarSexualidades.setText("Cadastrar sexualidades");
@@ -178,6 +183,11 @@ public class area_de_trabalho extends javax.swing.JFrame {
         menuNivelAcesso.setText("Formulario nivel de acesso");
 
         menuCadastrarNivel.setText("Cadastro de nivel de acesso");
+        menuCadastrarNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastrarNivelActionPerformed(evt);
+            }
+        });
         menuNivelAcesso.add(menuCadastrarNivel);
 
         menuConsultarNivel.setText("Consulta de nivel de acesso");
@@ -381,7 +391,9 @@ public class area_de_trabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCadastrarSexualidadesActionPerformed
 
     private void menuConsultarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultarNivelActionPerformed
-        // TODO add your handling code here:
+        CadastroNivelAcesso cna = new CadastroNivelAcesso();
+        cna.PainelGuiasNivelAcesso.setSelectedIndex(1);
+        cna.setVisible(true);
     }//GEN-LAST:event_menuConsultarNivelActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -394,6 +406,17 @@ public class area_de_trabalho extends javax.swing.JFrame {
         c.PainelDeGuias.setSelectedIndex(1);
         c.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void menuCadastrarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarNivelActionPerformed
+        CadastroNivelAcesso cna = new CadastroNivelAcesso();
+        cna.setVisible(true);
+    }//GEN-LAST:event_menuCadastrarNivelActionPerformed
+
+    private void menuConsultarSexualidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultarSexualidadesActionPerformed
+        CadastroSexualidades cs = new CadastroSexualidades();
+        cs.PainelGuiasTipoSexualidade.setSelectedIndex(1);
+        cs.setVisible(true);
+    }//GEN-LAST:event_menuConsultarSexualidadesActionPerformed
 
     /**
      * @param args the command line arguments

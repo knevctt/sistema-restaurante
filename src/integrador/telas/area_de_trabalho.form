@@ -83,6 +83,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar sexualidades"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuConsultarSexualidadesActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
@@ -109,6 +112,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cadastro de nivel de acesso"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCadastrarNivelActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
@@ -326,6 +332,7 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    public void paintComponent(Graphics g){&#xa;    g.drawImage(image, 0, 0, getWidth(), getHeight(), this);&#xa;}&#xa;}"/>
         <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icon = new ImageIcon(getClass().getResource(&quot;/imagensFundo/fundo principal sistema.jpg&quot;));&#xa;Image image = icon.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="area_de_trabalho_PapelDeParedeMenu"/>
       </AuxValues>
 
       <Layout>
@@ -337,7 +344,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="1011" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1014" max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>

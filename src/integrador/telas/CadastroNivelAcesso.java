@@ -496,7 +496,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
     private javax.swing.JTextField ConsultaNivelAcesso;
     private javax.swing.JPanel ConsultarNivelAcesso;
     private javax.swing.JPanel PainelCadastroNivelAcesso;
-    private javax.swing.JTabbedPane PainelGuiasNivelAcesso;
+    public javax.swing.JTabbedPane PainelGuiasNivelAcesso;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoNovo;

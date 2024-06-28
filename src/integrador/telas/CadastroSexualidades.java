@@ -212,7 +212,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTipoDeProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addGroup(CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
@@ -488,7 +488,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CadastrarTipoSexualidade;
     private javax.swing.JPanel ConsultarTipoSexualidade;
-    private javax.swing.JTabbedPane PainelGuiasTipoSexualidade;
+    public javax.swing.JTabbedPane PainelGuiasTipoSexualidade;
     private javax.swing.JPanel PainelTipoSexualidade;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;

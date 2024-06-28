@@ -185,7 +185,7 @@ public class ClientesDAO {
     public List<Clientes> Listar() {
     List<Clientes> lista = new ArrayList<>();
     try {
-        String sql = "SELECT c.id, c.nome, c.RG, c.CPF, c.email, c.telefone, c.cep, c.endereco, c.complemento, c.bairro, c.numero, c.cidade, c.estado, s.sexName FROM cliente AS c INNER JOIN sex AS s ON c.idSex = s.idSex";
+        String sql = "SELECT c.id, c.nome, c.RG, c.CPF, c.email, c.telefone, c.cep, c.endereco, c.complemento, c.bairro, c.numero, c.cidade, c.estado, s.sexName FROM cliente AS c INNER JOIN sex AS s ON c.idSex = s.idSex ORDER BY id";
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         
