@@ -4,8 +4,17 @@
  */
 package integrador.telas;
 
+import integrador.dao.ItensVendasDAO;
+import integrador.dao.ProdutosDAO;
+import integrador.dao.VendasDAO;
 import integrador.model.Clientes;
 import integrador.model.ItensVendas;
+import integrador.model.Produtos;
+import integrador.model.Vendas;
+import integrador.utilitarios.Utilitarios;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,6 +29,9 @@ public class FormularioPagamentos extends javax.swing.JFrame {
     
     public FormularioPagamentos() {
         initComponents();
+        txtDinheiro.setText("0");
+        txtCartao.setText("0");
+        txtPix.setText("0");
     }
 
     /**
@@ -46,10 +58,16 @@ public class FormularioPagamentos extends javax.swing.JFrame {
         txtPix = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacoes = new javax.swing.JTextArea();
+        btnPagar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pagamentos");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         PainelControleEstoque.setBackground(new java.awt.Color(0, 0, 0));
         PainelControleEstoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -83,13 +101,30 @@ public class FormularioPagamentos extends javax.swing.JFrame {
 
         jLabel7.setText("Observações:");
 
+        txtDinheiro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtCartao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtTroco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTroco.setEnabled(false);
+
         txtTotalVenda.setEnabled(false);
 
         jLabel6.setText("Pix:");
 
+        txtPix.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         txtObservacoes.setColumns(20);
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
+
+        btnPagar.setFont(new java.awt.Font("MonoLisa-Bold", 0, 30)); // NOI18N
+        btnPagar.setText("PAGAR");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +153,9 @@ public class FormularioPagamentos extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -148,13 +185,68 @@ public class FormularioPagamentos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 50, Short.MAX_VALUE))
+                    .addComponent(txtTotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 35, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        double dinheiro, cartao, pix, totalVenda, troco, totalPago;
+        dinheiro = Double.valueOf(txtDinheiro.getText());
+        cartao = Double.valueOf(txtCartao.getText());
+        pix = Double.valueOf(txtPix.getText());
+        totalVenda = Double.valueOf(txtTotalVenda.getText());
+        totalPago = dinheiro+cartao+pix;
+        troco = totalPago - totalVenda;
+        txtTroco.setText(String.valueOf(troco));
+        
+        if(totalPago >= totalVenda){
+            Vendas v = new Vendas();
+            v.setClientes(clientes);
+            Date agora = new Date();
+            SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String dataMysql = dataEUA.format(agora);
+            v.setData_venda(dataMysql);
+            v.setTotal_venda(totalVenda);
+            v.setObservacoes(txtObservacoes.getText());
+            VendasDAO vd = new VendasDAO();
+            vd.Salvar(v);
+            v.setId(vd.retornaUltimoIdVenda());
+            JOptionPane.showMessageDialog(null, "ID da ultima venda: " + v.getId());
+            
+            for(int i = 0; i < meus_produtos.getRowCount(); i++){
+                int qtd_estoque, qtd_comprada, qtd_atualizada;
+                Produtos p = new Produtos();
+                ProdutosDAO pd = new ProdutosDAO();
+                ItensVendas item = new ItensVendas();
+                item.setVendas(v);
+                
+                p.setIdProduct(Integer.valueOf(meus_produtos.getValueAt(i, 0).toString()));
+                item.setProdutos(p);
+                
+                item.setQtd(Integer.valueOf(meus_produtos.getValueAt(i, 2).toString()));
+                item.setSubtotal(Double.valueOf(meus_produtos.getValueAt(i, 4).toString()));
+                qtd_estoque = pd.retornaQtdAtualEstlque(p.getIdProduct());
+                qtd_comprada = Integer.valueOf(meus_produtos.getValueAt(i, 0).toString());
+                qtd_atualizada = qtd_estoque - qtd_comprada;
+                pd.baixaEstoque(p.getIdProduct(), qtd_atualizada);
+                ItensVendasDAO ivd = new ItensVendasDAO();
+                ivd.Salvar(item);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Não foi possivel fazer a venda! O valor pago é menor que o valor da venda!");
+        }
+    }//GEN-LAST:event_btnPagarActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+                Utilitarios u = new Utilitarios();
+        u.InserirIcone(this);
+
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -167,7 +259,7 @@ public class FormularioPagamentos extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -193,6 +285,7 @@ public class FormularioPagamentos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PainelControleEstoque;
+    private javax.swing.JButton btnPagar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

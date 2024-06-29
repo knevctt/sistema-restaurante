@@ -4,12 +4,16 @@
  */
 package integrador.dao;
 
+import integrador.model.Clientes;
 import integrador.model.Vendas;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -55,6 +59,32 @@ public class VendasDAO {
             throw new RuntimeException("erro ao retornar o ultimo id da venda" + erro);
         }
         
+    }
+    
+    public List<Vendas>historicoVendas(LocalDate data_inicio, LocalDate data_fim){
+        try {
+            List<Vendas>lista = new ArrayList<>();
+            String sql = "SELECT v.id, c.nome, date_format(v.data_venda, '%d/%m/%Y') AS data_formatada, v.total_venda, v.observacoes FROM vendas as v INNER JOIN cliente AS c ON(v.cliente_id = c.id) WHERE v.data_venda BETWEEN ? AND ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, data_inicio.toString());
+            stmt.setString(2, data_fim.toString());
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                Vendas v = new Vendas();
+                Clientes c = new Clientes();
+                v.setId(rs.getInt("v.id"));
+                c.setNome(rs.getString("c.nome"));
+                v.setClientes(c);
+                v.setData_venda(rs.getString("data_formatada"));
+                v.setTotal_venda(rs.getDouble("v.total_venda"));
+                v.setObservacoes(rs.getString("v.observacoes"));
+                lista.add(v);
+            }
+            return lista;
+        } catch (SQLException erro) {
+            throw new RuntimeException("Erro ao criar o histórico de vendas" + erro);
+        }
+    
     }
     
 }
