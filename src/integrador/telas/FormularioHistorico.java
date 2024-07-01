@@ -4,7 +4,9 @@
  */
 package integrador.telas;
 
+import integrador.dao.ItensVendasDAO;
 import integrador.dao.VendasDAO;
+import integrador.model.ItensVendas;
 import integrador.model.Vendas;
 import integrador.utilitarios.Utilitarios;
 import java.time.LocalDate;
@@ -137,6 +139,11 @@ public class FormularioHistorico extends javax.swing.JFrame {
                 "Codigo", "Cliente", "Data da venda", "Total da venda", "Observações"
             }
         ));
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabela);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -184,6 +191,29 @@ public class FormularioHistorico extends javax.swing.JFrame {
         Utilitarios u = new Utilitarios();
         u.InserirIcone(this);
     }//GEN-LAST:event_formWindowActivated
+
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        FormularioDetalhesVenda fdv = new FormularioDetalhesVenda();
+        fdv.txtIdVenda.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        fdv.txtCliente.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
+        fdv.txtDataVenda.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
+        fdv.txtTotalVenda.setText(tabela.getValueAt(tabela.getSelectedRow(), 3).toString());
+        fdv.txtObs.setText(tabela.getValueAt(tabela.getSelectedRow(), 4).toString());
+        int venda_id = Integer.valueOf(fdv.txtIdVenda.getText());
+        ItensVendasDAO dao = new ItensVendasDAO();
+        List<ItensVendas>lista = dao.listaItens(venda_id);
+        DefaultTableModel dados = (DefaultTableModel) fdv.carrinho.getModel();
+        for(ItensVendas i : lista){
+            dados.addRow(new Object[]{
+                i.getProdutos().getIdProduct(),
+                i.getProdutos().getNameProduct(),
+                i.getQtd(),
+                i.getProdutos().getPrice(),
+                i.getSubtotal()
+            });
+        }
+        fdv.setVisible(true);
+    }//GEN-LAST:event_tabelaMouseClicked
 
     /**
      * @param args the command line arguments

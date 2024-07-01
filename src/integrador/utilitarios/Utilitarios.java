@@ -3,6 +3,7 @@ package integrador.utilitarios;
 import java.awt.Component;
 import java.awt.Toolkit;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -22,6 +23,15 @@ public class Utilitarios {
             System.out.println(ex.toString());
         }
     }
+    public void InserirIconeJDialog(JDialog dlg) {
+        try {
+            dlg.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\imagens\\icone restaurante.png"));
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
+
+
 
     public void LimpaTela(JPanel container) {
         Component conponents[] = container.getComponents();

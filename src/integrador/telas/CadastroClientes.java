@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class CadastroClientes extends javax.swing.JFrame {
+public class CadastroClientes extends javax.swing.JDialog {
     
     public void listar(){
         ClientesDAO dao = new ClientesDAO();
@@ -37,7 +37,8 @@ public class CadastroClientes extends javax.swing.JFrame {
         }
     }
     
-    public CadastroClientes() {
+    public CadastroClientes(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -97,19 +98,22 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        PainelDeGuias.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelDeGuias.setBackground(new java.awt.Color(40, 75, 99));
+        PainelDeGuias.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
 
-        DadosPessoais.setBackground(new java.awt.Color(204, 204, 204));
+        DadosPessoais.setBackground(new java.awt.Color(40, 75, 99));
+        DadosPessoais.setForeground(new java.awt.Color(217, 217, 217));
         DadosPessoais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         DadosPessoais.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
         txtId.setEditable(false);
         txtId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtId.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -117,7 +121,7 @@ public class CadastroClientes extends javax.swing.JFrame {
         });
 
         txtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtNome.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
@@ -129,17 +133,20 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Nome Completo:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(217, 217, 217));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("RG:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(217, 217, 217));
         jLabel5.setText("CPF:");
 
-        txtRG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtRG.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         try {
             txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
         } catch (java.text.ParseException ex) {
@@ -153,7 +160,7 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        txtCPF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtCPF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
         } catch (java.text.ParseException ex) {
@@ -167,21 +174,23 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoSalvar.setBackground(new java.awt.Color(217, 217, 217));
+        botaoSalvar.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
         botaoSalvar.setText("Salvar");
-        botaoSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(217, 217, 217));
         jLabel12.setText("Sexo");
 
-        sexoCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        sexoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        sexoCliente.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        sexoCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sexoCliente.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 sexoClienteAncestorAdded(evt);
@@ -202,54 +211,60 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        botaoPesquisarFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoPesquisarFuncionario.setBackground(new java.awt.Color(217, 217, 217));
+        botaoPesquisarFuncionario.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoPesquisarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarFuncionario.setText("Pesquisar");
-        botaoPesquisarFuncionario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarFuncionarioActionPerformed(evt);
             }
         });
 
-        botaoNovo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoNovo.setBackground(new java.awt.Color(217, 217, 217));
+        botaoNovo.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone novo.png"))); // NOI18N
         botaoNovo.setText("Novo");
-        botaoNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoNovoActionPerformed(evt);
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoEditar.setBackground(new java.awt.Color(217, 217, 217));
+        botaoEditar.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone editar.png"))); // NOI18N
         botaoEditar.setText("Editar");
-        botaoEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEditarActionPerformed(evt);
             }
         });
 
-        botaoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoExcluir.setBackground(new java.awt.Color(217, 217, 217));
+        botaoExcluir.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone excluir.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
-        botaoExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoExcluirActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(217, 217, 217));
         jLabel6.setText("Email:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(217, 217, 217));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Telefone:");
 
-        txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtTelefone.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
@@ -263,7 +278,7 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        txtCEP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtCEP.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         try {
             txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
@@ -277,52 +292,59 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(217, 217, 217));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel8.setText("CEP:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(217, 217, 217));
         jLabel9.setText("Endereço:");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(217, 217, 217));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel10.setText("Complemento");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(217, 217, 217));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("Bairro:");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(217, 217, 217));
         jLabel14.setText("N°");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(217, 217, 217));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("Cidade:");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(217, 217, 217));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel16.setText("UF:");
 
-        cbUF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cbUF.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         cbUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        cbUF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        cbUF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        txtBairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtBairro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtBairro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        txtComplemento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtComplemento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtComplemento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        txtEndereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtEndereco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtEndereco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        txtCidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtCidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtCidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        txtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtNumero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtNumero.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout DadosPessoaisLayout = new javax.swing.GroupLayout(DadosPessoais);
@@ -356,7 +378,7 @@ public class CadastroClientes extends javax.swing.JFrame {
                                         .addComponent(txtCidade)))
                                 .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(DadosPessoaisLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel16)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(cbUF, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,7 +386,7 @@ public class CadastroClientes extends javax.swing.JFrame {
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(sexoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE))
                                     .addGroup(DadosPessoaisLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel9)
@@ -396,7 +418,7 @@ public class CadastroClientes extends javax.swing.JFrame {
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtNome)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(botaoPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DadosPessoaisLayout.createSequentialGroup()
                         .addContainerGap()
@@ -411,18 +433,19 @@ public class CadastroClientes extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBairro)))
-                .addGap(32, 32, 32))
+                .addGap(27, 27, 27))
         );
         DadosPessoaisLayout.setVerticalGroup(
             DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DadosPessoaisLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoPesquisarFuncionario))
+                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoPesquisarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -432,14 +455,14 @@ public class CadastroClientes extends javax.swing.JFrame {
                         .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtEmail))
-                .addGap(0, 19, Short.MAX_VALUE)
+                .addGap(0, 16, Short.MAX_VALUE)
                 .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DadosPessoaisLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
                         .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
@@ -474,11 +497,14 @@ public class CadastroClientes extends javax.swing.JFrame {
 
         PainelDeGuias.addTab("Dados pessoais", DadosPessoais);
 
+        ConsultaDeClientes.setBackground(new java.awt.Color(40, 75, 99));
+
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(217, 217, 217));
         jLabel11.setText("Nome Completo:");
 
         txtPesquisarNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPesquisarNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtPesquisarNome.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtPesquisarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarNomeActionPerformed(evt);
@@ -493,7 +519,7 @@ public class CadastroClientes extends javax.swing.JFrame {
         botaoPesquisarTableFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoPesquisarTableFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarTableFuncionarios.setText("Pesquisar");
-        botaoPesquisarTableFuncionarios.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarTableFuncionarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarTableFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarTableFuncionariosActionPerformed(evt);
@@ -505,7 +531,11 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
 
-        tabela.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jScrollPane1.setBackground(new java.awt.Color(40, 75, 99));
+
+        tabela.setBackground(new java.awt.Color(40, 75, 99));
+        tabela.setFont(new java.awt.Font("MonoLisa-Regular", 0, 11)); // NOI18N
+        tabela.setForeground(new java.awt.Color(217, 217, 217));
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -539,8 +569,8 @@ public class CadastroClientes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPesquisarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoPesquisarTableFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addComponent(botaoPesquisarTableFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(289, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ConsultaDeClientesLayout.setVerticalGroup(
@@ -558,11 +588,12 @@ public class CadastroClientes extends javax.swing.JFrame {
 
         PainelDeGuias.addTab("Consulta de clientes", ConsultaDeClientes);
 
-        Painel.setBackground(new java.awt.Color(0, 0, 0));
+        Painel.setBackground(new java.awt.Color(60, 110, 113));
         Painel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de Clientes");
 
@@ -845,7 +876,7 @@ public class CadastroClientes extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listar();
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void botaoPesquisarTableFuncionariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botaoPesquisarTableFuncionariosKeyPressed
@@ -882,7 +913,7 @@ public class CadastroClientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroClientes().setVisible(true);
+//                new CadastroClientes().setVisible(true);
             }
         });
     }

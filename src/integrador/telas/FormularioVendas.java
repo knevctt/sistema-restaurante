@@ -607,7 +607,7 @@ public class FormularioVendas extends javax.swing.JFrame {
         u.InserirIcone(this);
         
         Date agora = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy | hh:mm:ss");
+        SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
         String dataFormatada = formato.format(agora);
         txtData.setText(dataFormatada);
     }//GEN-LAST:event_formWindowActivated

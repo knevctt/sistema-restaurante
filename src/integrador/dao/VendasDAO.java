@@ -87,4 +87,21 @@ public class VendasDAO {
     
     }
     
+    public double posicaoDia(LocalDate data_venda){
+        try {
+            double total_do_dia = 0;
+            String sql = "SELECT sum(total_venda) AS total FROM vendas WHERE data_venda = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, data_venda.toString());
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                total_do_dia = rs.getDouble("total");
+            }
+            return total_do_dia;
+        } catch (SQLException erro) {
+            throw new RuntimeException("Erro ao retornar a posição do dia"+erro);
+        }
+    }
+    
 }

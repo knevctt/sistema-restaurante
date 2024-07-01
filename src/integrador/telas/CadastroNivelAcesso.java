@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class CadastroNivelAcesso extends javax.swing.JFrame {
+public class CadastroNivelAcesso extends javax.swing.JDialog {
 
     /**
      * Creates new form funcionarios
@@ -31,7 +31,8 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
         }
     }
     
-    public CadastroNivelAcesso() {
+    public CadastroNivelAcesso(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
     }
 
@@ -73,11 +74,11 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
             }
         });
 
-        PainelCadastroNivelAcesso.setBackground(new java.awt.Color(0, 0, 0));
+        PainelCadastroNivelAcesso.setBackground(new java.awt.Color(60, 110, 113));
         PainelCadastroNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de nivel de acesso");
 
@@ -95,22 +96,23 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasNivelAcesso.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
 
-        CadastrarNivelAcesso.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarNivelAcesso.setBackground(new java.awt.Color(40, 75, 99));
         CadastrarNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CadastrarNivelAcesso.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
         txtIdNivelAcesso.setEditable(false);
-        txtIdNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdNivelAcesso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtIdNivelAcesso.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        txtIdNivelAcesso.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        txtNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNivelAcesso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtNivelAcesso.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        txtNivelAcesso.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNivelAcessoActionPerformed(evt);
@@ -122,53 +124,54 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Nivel de acesso:");
 
-        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoSalvar.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
         botaoSalvar.setText("Salvar");
-        botaoSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
 
-        botaoPesquisarTipoDeProduto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoPesquisarTipoDeProduto.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoPesquisarTipoDeProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarTipoDeProduto.setText("Pesquisar");
-        botaoPesquisarTipoDeProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarTipoDeProduto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarTipoDeProdutoActionPerformed(evt);
             }
         });
 
-        botaoNovo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoNovo.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone novo.png"))); // NOI18N
         botaoNovo.setText("Novo");
-        botaoNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoNovoActionPerformed(evt);
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoEditar.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone editar.png"))); // NOI18N
         botaoEditar.setText("Editar");
-        botaoEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEditarActionPerformed(evt);
             }
         });
 
-        botaoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoExcluir.setFont(new java.awt.Font("MonoLisa-Bold", 0, 14)); // NOI18N
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone excluir.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
-        botaoExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoExcluirActionPerformed(evt);
@@ -197,7 +200,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNivelAcesso, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addComponent(txtNivelAcesso, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoPesquisarTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -212,7 +215,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTipoDeProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(CadastrarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
@@ -223,8 +226,10 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
 
         PainelGuiasNivelAcesso.addTab("Cadastrar nivel de acesso", CadastrarNivelAcesso);
 
-        ConsultaNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ConsultaNivelAcesso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        ConsultarNivelAcesso.setBackground(new java.awt.Color(40, 75, 99));
+
+        ConsultaNivelAcesso.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        ConsultaNivelAcesso.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         ConsultaNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaNivelAcessoActionPerformed(evt);
@@ -236,13 +241,14 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(217, 217, 217));
         jLabel11.setText("Nivel de acesso:");
 
-        btnPesquisarNivelAcesso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPesquisarNivelAcesso.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         btnPesquisarNivelAcesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         btnPesquisarNivelAcesso.setText("Pesquisar");
-        btnPesquisarNivelAcesso.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnPesquisarNivelAcesso.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnPesquisarNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarNivelAcessoActionPerformed(evt);
@@ -251,8 +257,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
 
         jScrollPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tabela.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tabela.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -282,16 +287,13 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
             ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarNivelAcessoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(ConsultarNivelAcessoLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ConsultaNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPesquisarNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 192, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConsultaNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPesquisarNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ConsultarNivelAcessoLayout.setVerticalGroup(
             ConsultarNivelAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,8 +304,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
                     .addComponent(ConsultaNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisarNivelAcesso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
         );
 
         PainelGuiasNivelAcesso.addTab("Consulta de nivel de acesso", ConsultarNivelAcesso);
@@ -332,7 +333,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
         
         //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnPesquisarNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarNivelAcessoActionPerformed
@@ -486,7 +487,7 @@ public class CadastroNivelAcesso extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroNivelAcesso().setVisible(true);
+//                new CadastroNivelAcesso().setVisible(true);
             }
         });
     }
