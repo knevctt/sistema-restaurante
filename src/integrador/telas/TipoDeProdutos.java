@@ -5,8 +5,6 @@
 package integrador.telas;
 
 import integrador.dao.TipoDeProdutosDAO;
-import integrador.dao.funcionariosDAO;
-import integrador.model.Funcionarios;
 import integrador.model.TipoDeProduto;
 import javax.swing.JOptionPane;
 import integrador.utilitarios.Utilitarios;
@@ -14,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class TipoDeProdutos extends javax.swing.JFrame {
+public class TipoDeProdutos extends javax.swing.JDialog {
 
     /**
      * Creates new form funcionarios
@@ -33,7 +31,8 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         }
     }
     
-    public TipoDeProdutos() {
+    public TipoDeProdutos(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -75,11 +74,11 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        PainelTipoProdutos.setBackground(new java.awt.Color(0, 0, 0));
+        PainelTipoProdutos.setBackground(new java.awt.Color(60, 110, 113));
         PainelTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tipo de Produtos");
 
@@ -97,22 +96,24 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasTipoProdutos.setForeground(new java.awt.Color(53, 53, 53));
+        PainelGuiasTipoProdutos.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
 
-        CadastrarTipoProdutos.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarTipoProdutos.setBackground(new java.awt.Color(40, 75, 99));
         CadastrarTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CadastrarTipoProdutos.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
         idProduto.setEditable(false);
         idProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        idProduto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         tipoProdutoDescricao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tipoProdutoDescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tipoProdutoDescricao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         tipoProdutoDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoProdutoDescricaoActionPerformed(evt);
@@ -124,13 +125,14 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Tipo de Produto:");
 
         botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
         botaoSalvar.setText("Salvar");
-        botaoSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
@@ -140,7 +142,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         botaoPesquisarTipoDeProduto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoPesquisarTipoDeProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarTipoDeProduto.setText("Pesquisar");
-        botaoPesquisarTipoDeProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarTipoDeProduto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarTipoDeProdutoActionPerformed(evt);
@@ -150,7 +152,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         botaoNovo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone novo.png"))); // NOI18N
         botaoNovo.setText("Novo");
-        botaoNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoNovoActionPerformed(evt);
@@ -160,7 +162,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         botaoEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone editar.png"))); // NOI18N
         botaoEditar.setText("Editar");
-        botaoEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEditarActionPerformed(evt);
@@ -170,7 +172,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         botaoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone excluir.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
-        botaoExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoExcluirActionPerformed(evt);
@@ -199,7 +201,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoPesquisarTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -214,22 +216,25 @@ public class TipoDeProdutos extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipoProdutoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTipoDeProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addGroup(CadastrarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
                     .addComponent(botaoEditar)
                     .addComponent(botaoExcluir))
-                .addGap(31, 31, 31))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         PainelGuiasTipoProdutos.addTab("Cadastrar tipo de produtos", CadastrarTipoProdutos);
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConsultarTipoProdutos.setBackground(new java.awt.Color(40, 75, 99));
+
+        jLabel11.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(217, 217, 217));
         jLabel11.setText("Tipo de produto:");
 
-        consultaTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        consultaTipoProdutos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        consultaTipoProdutos.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        consultaTipoProdutos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         consultaTipoProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultaTipoProdutosActionPerformed(evt);
@@ -241,10 +246,11 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        botaoPesquisarTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoPesquisarTipoProdutos.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        botaoPesquisarTipoProdutos.setForeground(new java.awt.Color(53, 53, 53));
         botaoPesquisarTipoProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarTipoProdutos.setText("Pesquisar");
-        botaoPesquisarTipoProdutos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarTipoProdutos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarTipoProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarTipoProdutosActionPerformed(evt);
@@ -284,28 +290,29 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisarTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 201, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel11)
+                .addGap(1, 1, 1)
+                .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botaoPesquisarTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(170, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ConsultarTipoProdutosLayout.setVerticalGroup(
             ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoPesquisarTipoProdutos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultarTipoProdutosLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultarTipoProdutosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ConsultarTipoProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(consultaTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoPesquisarTipoProdutos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
         );
 
         PainelGuiasTipoProdutos.addTab("Consulta de tipo de produtos", ConsultarTipoProdutos);
@@ -321,8 +328,9 @@ public class TipoDeProdutos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PainelTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PainelGuiasTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(PainelGuiasTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -334,7 +342,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         
         //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void botaoPesquisarTipoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTipoProdutosActionPerformed
@@ -478,7 +486,7 @@ public class TipoDeProdutos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TipoDeProdutos().setVisible(true);
+//                new TipoDeProdutos().setVisible(true);
             }
         });
     }

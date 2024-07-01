@@ -55,12 +55,12 @@ public class login extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Unispace", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(217, 217, 217));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("                         TERRABRASIL GRILL");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("                                                                        LOGIN");
 
@@ -79,10 +79,10 @@ public class login extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("SENHA");
 
-        Entrar.setBackground(new java.awt.Color(207, 181, 59));
+        Entrar.setBackground(new java.awt.Color(217, 217, 217));
         Entrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Entrar.setForeground(new java.awt.Color(51, 51, 51));
         Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/entrarImg.png"))); // NOI18N

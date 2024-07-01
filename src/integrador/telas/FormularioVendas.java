@@ -100,11 +100,11 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        PainelTipoProdutos.setBackground(new java.awt.Color(0, 0, 0));
+        PainelTipoProdutos.setBackground(new java.awt.Color(60, 110, 113));
         PainelTipoProdutos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vendas");
 
@@ -122,30 +122,35 @@ public class FormularioVendas extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(40, 75, 99));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(217, 217, 217))); // NOI18N
 
         txtData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtData.setEnabled(false);
-        txtData.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtData.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         txtData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setText("CPF:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Data:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(217, 217, 217));
         jLabel4.setText("Nome:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(217, 217, 217));
         jLabel5.setText("Pesquise um produto aqui:");
 
-        btnPesquisarCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPesquisarCliente.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         btnPesquisarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisacpf.png"))); // NOI18N
         btnPesquisarCliente.setText("Pesquisar");
         btnPesquisarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -155,7 +160,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        painelDaTabela.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        painelDaTabela.setFont(new java.awt.Font("MonoLisa-Regular", 0, 12)); // NOI18N
         painelDaTabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 painelDaTabelaMouseClicked(evt);
@@ -193,7 +198,7 @@ public class FormularioVendas extends javax.swing.JFrame {
         painelDaTabela.setViewportView(tabelaProduto);
 
         txtPesquisaProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        txtPesquisaProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtPesquisaProduto.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtPesquisaProduto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPesquisaProdutoKeyReleased(evt);
@@ -206,7 +211,7 @@ public class FormularioVendas extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCPF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCPF.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCPFKeyPressed(evt);
@@ -214,7 +219,7 @@ public class FormularioVendas extends javax.swing.JFrame {
         });
 
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        txtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNome.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -242,7 +247,7 @@ public class FormularioVendas extends javax.swing.JFrame {
                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(painelDaTabela)
         );
         jPanel1Layout.setVerticalGroup(
@@ -267,24 +272,30 @@ public class FormularioVendas extends javax.swing.JFrame {
                 .addComponent(painelDaTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        painel_produto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
+        painel_produto.setBackground(new java.awt.Color(40, 75, 99));
+        painel_produto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(217, 217, 217))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(217, 217, 217));
         jLabel6.setText("ID:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(217, 217, 217));
         jLabel7.setText("Produto:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(217, 217, 217));
         jLabel8.setText("Quantidade:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(217, 217, 217));
         jLabel9.setText("Preço:");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(217, 217, 217));
         jLabel10.setText("Estoque:");
 
-        txtCodigo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCodigo.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,7 +308,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        txtProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtProduto.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtProduto.setEnabled(false);
         txtProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -306,7 +317,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        txtPreco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtPreco.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtPreco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtPreco.setEnabled(false);
         txtPreco.addActionListener(new java.awt.event.ActionListener() {
@@ -315,7 +326,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        txtEstoque.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEstoque.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtEstoque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtEstoque.setEnabled(false);
         txtEstoque.addActionListener(new java.awt.event.ActionListener() {
@@ -324,11 +335,11 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        txtQtd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtQtd.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtQtd.setText("1");
         txtQtd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        btnAdicionar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAdicionar.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone adicionar carrinho.png"))); // NOI18N
         btnAdicionar.setText("Adicionar Item");
         btnAdicionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -338,10 +349,11 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(217, 217, 217));
         jLabel11.setText("Desconto %:");
 
-        txtDesconto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtDesconto.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtDesconto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtDesconto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,7 +361,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        btnPesquisarCampoProduto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPesquisarCampoProduto.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         btnPesquisarCampoProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisacpf.png"))); // NOI18N
         btnPesquisarCampoProduto.setText("Pesquisar");
         btnPesquisarCampoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -359,7 +371,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        btnLimpar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnLimpar.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone limpar.png"))); // NOI18N
         btnLimpar.setText("Limpar Campos");
         btnLimpar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -369,7 +381,7 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        txtTipo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTipo.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         txtTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtTipo.setEnabled(false);
         txtTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -383,7 +395,8 @@ public class FormularioVendas extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(217, 217, 217));
         jLabel13.setText("Produto tipo:");
 
         javax.swing.GroupLayout painel_produtoLayout = new javax.swing.GroupLayout(painel_produto);
@@ -429,10 +442,10 @@ public class FormularioVendas extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(162, 162, 162))
                     .addGroup(painel_produtoLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(btnLimpar)
                         .addGap(53, 53, 53)
-                        .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdicionar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         painel_produtoLayout.setVerticalGroup(
@@ -479,7 +492,10 @@ public class FormularioVendas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Carrinho de compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(40, 75, 99));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Carrinho de compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(217, 217, 217))); // NOI18N
+
+        jScrollPane5.setFont(new java.awt.Font("MonoLisa-Regular", 0, 12)); // NOI18N
 
         carrinho.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -510,9 +526,11 @@ public class FormularioVendas extends javax.swing.JFrame {
             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total da venda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel4.setBackground(new java.awt.Color(40, 75, 99));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total da venda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(217, 217, 217))); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(217, 217, 217));
         jLabel12.setText("Total da venda:");
 
         txtTotalVenda.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -546,7 +564,7 @@ public class FormularioVendas extends javax.swing.JFrame {
                         .addComponent(txtTotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancelar)))
@@ -575,7 +593,7 @@ public class FormularioVendas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painel_produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -584,11 +602,11 @@ public class FormularioVendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PainelTipoProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(painel_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

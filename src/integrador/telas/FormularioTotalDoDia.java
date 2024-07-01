@@ -11,12 +11,13 @@ import java.time.format.DateTimeFormatter;
  *
  * @author knevc
  */
-public class FormularioTotalDoDia extends javax.swing.JFrame {
+public class FormularioTotalDoDia extends javax.swing.JDialog {
 
     /**
      * Creates new form FormularioTotalDoDia
      */
-    public FormularioTotalDoDia() {
+    public FormularioTotalDoDia(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -46,11 +47,11 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
             }
         });
 
-        PainelControleEstoque.setBackground(new java.awt.Color(0, 0, 0));
+        PainelControleEstoque.setBackground(new java.awt.Color(60, 110, 113));
         PainelControleEstoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Total do Dia");
 
@@ -68,11 +69,15 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Posição do Dia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("MonoLisa-Bold", 0, 18))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(40, 75, 99));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Posição do Dia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("MonoLisa-Bold", 0, 18), new java.awt.Color(217, 217, 217))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(217, 217, 217));
 
         jLabel2.setFont(new java.awt.Font("MonoLisa-Bold", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setText("Data:");
 
+        txtData.setForeground(new java.awt.Color(53, 53, 53));
         try {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/20##")));
         } catch (java.text.ParseException ex) {
@@ -81,12 +86,18 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
         txtData.setFont(new java.awt.Font("MonoLisa-Bold", 0, 18)); // NOI18N
 
         btnPesquisar.setFont(new java.awt.Font("MonoLisa-Bold", 0, 18)); // NOI18N
+        btnPesquisar.setForeground(new java.awt.Color(53, 53, 53));
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
             }
         });
+
+        txtTotal.setBackground(new java.awt.Color(217, 217, 217));
+        txtTotal.setFont(new java.awt.Font("MonoLisa-Bold", 0, 18)); // NOI18N
+        txtTotal.setForeground(new java.awt.Color(255, 255, 255));
+        txtTotal.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,9 +107,12 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPesquisar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPesquisar))
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,11 +123,10 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
-
-        txtTotal.setFont(new java.awt.Font("MonoLisa-Bold", 0, 18)); // NOI18N
-        txtTotal.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,21 +134,15 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PainelControleEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(PainelControleEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,7 +160,7 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -186,7 +193,7 @@ public class FormularioTotalDoDia extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioTotalDoDia().setVisible(true);
+//                new FormularioTotalDoDia().setVisible(true);
             }
         });
     }

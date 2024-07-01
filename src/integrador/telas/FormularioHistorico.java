@@ -18,12 +18,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author knevc
  */
-public class FormularioHistorico extends javax.swing.JFrame {
+public class FormularioHistorico extends javax.swing.JDialog {
 
     /**
      * Creates new form FormularioHistorico
      */
-    public FormularioHistorico() {
+    public FormularioHistorico(java.awt.Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
     }
 
@@ -56,10 +57,10 @@ public class FormularioHistorico extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(60, 110, 113));
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-Bold", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Histórico de Vendas");
 
@@ -74,25 +75,40 @@ public class FormularioHistorico extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta por data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(40, 75, 99));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta por data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("MonoLisa-Regular", 0, 16), new java.awt.Color(217, 217, 217))); // NOI18N
+        jPanel2.setForeground(new java.awt.Color(217, 217, 217));
 
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setText("Data inicio:");
 
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Data fim:");
 
+        txtInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtInicio.setForeground(new java.awt.Color(53, 53, 53));
         try {
             txtInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/20##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtInicio.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
 
+        txtFim.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtFim.setForeground(new java.awt.Color(53, 53, 53));
         try {
             txtFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/20##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtFim.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
 
+        btnPesquisarVenda.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        btnPesquisarVenda.setForeground(new java.awt.Color(53, 53, 53));
         btnPesquisarVenda.setText("Pesquisar");
+        btnPesquisarVenda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnPesquisarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarVendaActionPerformed(evt);
@@ -113,7 +129,7 @@ public class FormularioHistorico extends javax.swing.JFrame {
                 .addComponent(txtFim, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPesquisarVenda)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtFim, txtInicio});
@@ -128,9 +144,12 @@ public class FormularioHistorico extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisarVenda))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setFont(new java.awt.Font("MonoLisa-Regular", 0, 12)); // NOI18N
+
+        tabela.setFont(new java.awt.Font("MonoLisa-Regular", 0, 12)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -158,9 +177,9 @@ public class FormularioHistorico extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -189,7 +208,7 @@ public class FormularioHistorico extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
@@ -245,7 +264,7 @@ public class FormularioHistorico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioHistorico().setVisible(true);
+//                new FormularioHistorico().setVisible(true);
             }
         });
     }

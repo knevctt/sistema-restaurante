@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class funcionarios extends javax.swing.JFrame {
+public class funcionarios extends javax.swing.JDialog {
     
     public void listar(){
         funcionariosDAO dao = new funcionariosDAO();
@@ -33,7 +33,8 @@ public class funcionarios extends javax.swing.JFrame {
         }
     }
     
-    public funcionarios() {
+    public funcionarios(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -87,11 +88,11 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        PainelFuncionarios.setBackground(new java.awt.Color(0, 0, 0));
+        PainelFuncionarios.setBackground(new java.awt.Color(60, 110, 113));
         PainelFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("FUNCIONARIOS");
 
@@ -109,22 +110,23 @@ public class funcionarios extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasMenuFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasMenuFuncionarios.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
 
-        CadastrarFuncionarios.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarFuncionarios.setBackground(new java.awt.Color(40, 75, 99));
         CadastrarFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CadastrarFuncionarios.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
         idFuncionario.setEditable(false);
-        idFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        idFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        idFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        nomeCompletoFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nomeCompletoFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        nomeCompletoFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        nomeCompletoFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         nomeCompletoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeCompletoFuncionarioActionPerformed(evt);
@@ -136,46 +138,54 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Nome Completo:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(217, 217, 217));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("RG:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(217, 217, 217));
         jLabel5.setText("CPF:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(217, 217, 217));
         jLabel6.setText("Senha:");
 
-        senhaFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        senhaFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        senhaFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        senhaFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        loginUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        loginUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        loginUsuario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        loginUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         loginUsuario.setPreferredSize(new java.awt.Dimension(64, 29));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(217, 217, 217));
         jLabel7.setText("Login:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(217, 217, 217));
         jLabel8.setText("Nivel de Permissão:");
 
-        rgFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        rgFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         try {
             rgFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        rgFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         rgFuncionario.setPreferredSize(new java.awt.Dimension(64, 29));
 
-        cpfFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        cpfFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         try {
             cpfFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        cpfFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         cpfFuncionario.setPreferredSize(new java.awt.Dimension(64, 29));
         cpfFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,8 +193,8 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        nivelPermissao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nivelPermissao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        nivelPermissao.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        nivelPermissao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         nivelPermissao.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 nivelPermissaoAncestorAdded(evt);
@@ -205,21 +215,23 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoSalvar.setFont(new java.awt.Font("MonoLisa-Regular", 1, 16)); // NOI18N
+        botaoSalvar.setForeground(new java.awt.Color(53, 53, 53));
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
         botaoSalvar.setText("Salvar");
-        botaoSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(217, 217, 217));
         jLabel12.setText("Sexo");
 
-        sexoFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        sexoFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        sexoFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        sexoFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sexoFuncionario.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 sexoFuncionarioAncestorAdded(evt);
@@ -240,40 +252,44 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        botaoPesquisarFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoPesquisarFuncionario.setFont(new java.awt.Font("MonoLisa-Regular", 1, 16)); // NOI18N
+        botaoPesquisarFuncionario.setForeground(new java.awt.Color(53, 53, 53));
         botaoPesquisarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarFuncionario.setText("Pesquisar");
-        botaoPesquisarFuncionario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarFuncionarioActionPerformed(evt);
             }
         });
 
-        botaoNovo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoNovo.setFont(new java.awt.Font("MonoLisa-Regular", 1, 16)); // NOI18N
+        botaoNovo.setForeground(new java.awt.Color(53, 53, 53));
         botaoNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone novo.png"))); // NOI18N
         botaoNovo.setText("Novo");
-        botaoNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoNovoActionPerformed(evt);
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoEditar.setFont(new java.awt.Font("MonoLisa-Regular", 1, 16)); // NOI18N
+        botaoEditar.setForeground(new java.awt.Color(53, 53, 53));
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone editar.png"))); // NOI18N
         botaoEditar.setText("Editar");
-        botaoEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEditarActionPerformed(evt);
             }
         });
 
-        botaoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoExcluir.setFont(new java.awt.Font("MonoLisa-Regular", 1, 16)); // NOI18N
+        botaoExcluir.setForeground(new java.awt.Color(53, 53, 53));
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone excluir.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
-        botaoExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoExcluirActionPerformed(evt);
@@ -286,7 +302,7 @@ public class funcionarios extends javax.swing.JFrame {
             CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                         .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
@@ -295,7 +311,7 @@ public class funcionarios extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(23, 23, 23)
                                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cpfFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                                    .addComponent(cpfFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
                                     .addComponent(rgFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,28 +329,28 @@ public class funcionarios extends javax.swing.JFrame {
                                 .addComponent(nivelPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel12)
-                                .addGap(6, 6, 6)
-                                .addComponent(sexoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sexoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(108, 108, 108)
                                 .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoSalvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoEditar)
+                                .addGap(9, 9, 9)
+                                .addComponent(botaoExcluir))))
                     .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(idFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nomeCompletoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 30, Short.MAX_VALUE))
+                        .addComponent(botaoPesquisarFuncionario)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         CadastrarFuncionariosLayout.setVerticalGroup(
             CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,8 +361,8 @@ public class funcionarios extends javax.swing.JFrame {
                     .addComponent(idFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeCompletoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoPesquisarFuncionario))
-                .addGap(47, 47, 47)
+                    .addComponent(botaoPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(rgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,30 +374,31 @@ public class funcionarios extends javax.swing.JFrame {
                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(CadastrarFuncionariosLayout.createSequentialGroup()
-                        .addComponent(loginUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(senhaFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(botaoSalvar)
-                        .addComponent(botaoNovo)
-                        .addComponent(botaoEditar)
-                        .addComponent(botaoExcluir)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(CadastrarFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(senhaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoSalvar)
+                    .addComponent(botaoNovo)
+                    .addComponent(botaoEditar)
+                    .addComponent(botaoExcluir)
+                    .addComponent(jLabel6))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         PainelGuiasMenuFuncionarios.addTab("Cadastrar Funcionarios", CadastrarFuncionarios);
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConsultarFuncionarios.setBackground(new java.awt.Color(40, 75, 99));
+
+        jLabel11.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(217, 217, 217));
         jLabel11.setText("Nome Completo:");
 
-        nomeCompletoFuncionario1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nomeCompletoFuncionario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        nomeCompletoFuncionario1.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
+        nomeCompletoFuncionario1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         nomeCompletoFuncionario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeCompletoFuncionario1ActionPerformed(evt);
@@ -393,10 +410,10 @@ public class funcionarios extends javax.swing.JFrame {
             }
         });
 
-        botaoPesquisarTableFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoPesquisarTableFuncionarios.setFont(new java.awt.Font("MonoLisa-Regular", 0, 16)); // NOI18N
         botaoPesquisarTableFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarTableFuncionarios.setText("Pesquisar");
-        botaoPesquisarTableFuncionarios.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarTableFuncionarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarTableFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarTableFuncionariosActionPerformed(evt);
@@ -404,7 +421,7 @@ public class funcionarios extends javax.swing.JFrame {
         });
 
         tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tabela.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tabela.setFont(new java.awt.Font("MonoLisa-Regular", 0, 12)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -442,7 +459,7 @@ public class funcionarios extends javax.swing.JFrame {
                         .addComponent(nomeCompletoFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoPesquisarTableFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 199, Short.MAX_VALUE)))
+                        .addGap(0, 200, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ConsultarFuncionariosLayout.setVerticalGroup(
@@ -454,7 +471,7 @@ public class funcionarios extends javax.swing.JFrame {
                     .addComponent(nomeCompletoFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTableFuncionarios))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -465,14 +482,15 @@ public class funcionarios extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PainelFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+            .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PainelFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(PainelGuiasMenuFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -586,7 +604,7 @@ public class funcionarios extends javax.swing.JFrame {
         
         //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void botaoPesquisarTableFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTableFuncionariosActionPerformed
@@ -743,7 +761,7 @@ public class funcionarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new funcionarios().setVisible(true);
+//                new funcionarios().setVisible(true);
             }
         });
     }

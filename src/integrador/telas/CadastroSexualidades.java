@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class CadastroSexualidades extends javax.swing.JFrame {
+public class CadastroSexualidades extends javax.swing.JDialog {
 
     /**
      * Creates new form funcionarios
@@ -31,7 +31,8 @@ public class CadastroSexualidades extends javax.swing.JFrame {
         }
     }
     
-    public CadastroSexualidades() {
+    public CadastroSexualidades(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -73,11 +74,11 @@ public class CadastroSexualidades extends javax.swing.JFrame {
             }
         });
 
-        PainelTipoSexualidade.setBackground(new java.awt.Color(0, 0, 0));
+        PainelTipoSexualidade.setBackground(new java.awt.Color(60, 110, 113));
         PainelTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("MonoLisa-BoldItalic", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(207, 181, 59));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro sexualidades");
 
@@ -95,22 +96,24 @@ public class CadastroSexualidades extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        PainelGuiasTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PainelGuiasTipoSexualidade.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
 
-        CadastrarTipoSexualidade.setBackground(new java.awt.Color(204, 204, 204));
+        CadastrarTipoSexualidade.setBackground(new java.awt.Color(40, 75, 99));
         CadastrarTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CadastrarTipoSexualidade.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(217, 217, 217));
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID:");
 
         txtIdSexo.setEditable(false);
         txtIdSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdSexo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtIdSexo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         txtSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtSexualidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtSexualidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtSexualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSexualidadeActionPerformed(evt);
@@ -122,53 +125,55 @@ public class CadastroSexualidades extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(217, 217, 217));
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
         jLabel3.setText("Tipo de Produto:");
 
-        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoSalvar.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone salvar.png"))); // NOI18N
         botaoSalvar.setText("Salvar");
-        botaoSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
 
-        botaoPesquisarTipoDeProduto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoPesquisarTipoDeProduto.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         botaoPesquisarTipoDeProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         botaoPesquisarTipoDeProduto.setText("Pesquisar");
-        botaoPesquisarTipoDeProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoPesquisarTipoDeProduto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoPesquisarTipoDeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarTipoDeProdutoActionPerformed(evt);
             }
         });
 
-        botaoNovo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoNovo.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         botaoNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone novo.png"))); // NOI18N
         botaoNovo.setText("Novo");
-        botaoNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoNovoActionPerformed(evt);
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoEditar.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone editar.png"))); // NOI18N
         botaoEditar.setText("Editar");
-        botaoEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEditarActionPerformed(evt);
             }
         });
 
-        botaoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoExcluir.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone excluir.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
-        botaoExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        botaoExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoExcluirActionPerformed(evt);
@@ -179,16 +184,6 @@ public class CadastroSexualidades extends javax.swing.JFrame {
         CadastrarTipoSexualidade.setLayout(CadastrarTipoSexualidadeLayout);
         CadastrarTipoSexualidadeLayout.setHorizontalGroup(
             CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastrarTipoSexualidadeLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastrarTipoSexualidadeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,10 +192,20 @@ public class CadastroSexualidades extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtSexualidade, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addComponent(txtSexualidade, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoPesquisarTipoDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(CadastrarTipoSexualidadeLayout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(botaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CadastrarTipoSexualidadeLayout.setVerticalGroup(
             CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,22 +217,25 @@ public class CadastroSexualidades extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisarTipoDeProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addGap(65, 65, 65)
                 .addGroup(CadastrarTipoSexualidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoNovo)
                     .addComponent(botaoEditar)
                     .addComponent(botaoExcluir))
-                .addGap(31, 31, 31))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PainelGuiasTipoSexualidade.addTab("Cadastrar tipo de sexualidade", CadastrarTipoSexualidade);
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConsultarTipoSexualidade.setBackground(new java.awt.Color(40, 75, 99));
+
+        jLabel11.setFont(new java.awt.Font("MonoLisa-Regular", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(217, 217, 217));
         jLabel11.setText("Tipo de sexualidade:");
 
         consultaTipoSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        consultaTipoSexualidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        consultaTipoSexualidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         consultaTipoSexualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultaTipoSexualidadeActionPerformed(evt);
@@ -242,7 +250,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
         btnPesquisarSexualidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPesquisarSexualidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone pesquisar.png"))); // NOI18N
         btnPesquisarSexualidade.setText("Pesquisar");
-        btnPesquisarSexualidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnPesquisarSexualidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnPesquisarSexualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarSexualidadeActionPerformed(evt);
@@ -252,13 +260,13 @@ public class CadastroSexualidades extends javax.swing.JFrame {
         jScrollPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tabela.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tabela.setFont(new java.awt.Font("MonoLisa-Regular", 0, 12)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "TIPO DE PRODUTOS"
+                "ID", "TIPO DE SEXUALIDADE"
             }
         ) {
             Class[] types = new Class [] {
@@ -290,7 +298,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
                         .addComponent(consultaTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPesquisarSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 157, Short.MAX_VALUE)))
+                        .addGap(0, 138, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ConsultarTipoSexualidadeLayout.setVerticalGroup(
@@ -302,7 +310,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
                     .addComponent(consultaTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisarSexualidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -320,7 +328,8 @@ public class CadastroSexualidades extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PainelTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PainelGuiasTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PainelGuiasTipoSexualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -332,7 +341,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
         
         //esse utilitarios é pra colocar icone na janela no canto superior esquerdo
         Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        u.InserirIconeJDialog(this);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnPesquisarSexualidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarSexualidadeActionPerformed
@@ -480,7 +489,7 @@ public class CadastroSexualidades extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroSexualidades().setVisible(true);
+//                new CadastroSexualidades().setVisible(true);
             }
         });
     }
