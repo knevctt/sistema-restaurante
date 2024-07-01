@@ -54,38 +54,39 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Unispace", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(217, 217, 217));
+        jLabel1.setFont(new java.awt.Font("MonoLisa-Bold", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(53, 53, 53));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("                         TERRABRASIL GRILL");
+        jLabel1.setText("                       TERRABRASIL GRILL");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(217, 217, 217));
+        jLabel2.setFont(new java.awt.Font("MonoLisa-Bold", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(53, 53, 53));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("                                                                        LOGIN");
+        jLabel2.setText("                               LOGIN");
 
-        usuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        usuario.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
         usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioActionPerformed(evt);
             }
         });
 
-        senha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        senha.setFont(new java.awt.Font("MonoLisa-Regular", 0, 18)); // NOI18N
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(217, 217, 217));
-        jLabel3.setText("SENHA");
+        jLabel3.setFont(new java.awt.Font("MonoLisa-Bold", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(53, 53, 53));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("                               SENHA");
 
-        Entrar.setBackground(new java.awt.Color(217, 217, 217));
+        Entrar.setBackground(new java.awt.Color(53, 53, 53));
         Entrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Entrar.setForeground(new java.awt.Color(51, 51, 51));
-        Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/entrarImg.png"))); // NOI18N
+        Entrar.setForeground(new java.awt.Color(255, 255, 255));
+        Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout_9691917.png"))); // NOI18N
         Entrar.setText("ENTRAR");
         Entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,14 +107,14 @@ public class login extends javax.swing.JFrame {
             painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1932, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLoginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painelLoginLayout.createSequentialGroup()
+                .addGap(712, 712, 712)
                 .addGroup(painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Entrar)
-                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(707, 707, 707))
+                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelLoginLayout.setVerticalGroup(
             painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,11 +127,11 @@ public class login extends javax.swing.JFrame {
                 .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(519, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

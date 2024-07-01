@@ -94,7 +94,6 @@ public class FormularioTotalDoDia extends javax.swing.JDialog {
             }
         });
 
-        txtTotal.setBackground(new java.awt.Color(217, 217, 217));
         txtTotal.setFont(new java.awt.Font("MonoLisa-Bold", 0, 18)); // NOI18N
         txtTotal.setForeground(new java.awt.Color(255, 255, 255));
         txtTotal.setEnabled(false);
