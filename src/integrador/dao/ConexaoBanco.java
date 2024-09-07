@@ -12,10 +12,10 @@ public class ConexaoBanco {
     private Connection conexao;
 
     public ConexaoBanco() {
-        this.servidor = "200.195.171.122";  // Endereço IP do servidor MySQL
-        this.banco = "grupo10_mensalKauan";  // Nome do banco de dados
-        this.usuario = "grupo10";  // Usuário do banco de dados
-        this.senha = "gopMi1PKCuJpaB29";  // Senha do usuário
+        this.servidor = "";  // Endereço IP do servidor MySQL
+        this.banco = "";  // Nome do banco de dados
+        this.usuario = "";  // Usuário do banco de dados
+        this.senha = "";  // Senha do usuário
     }
 
     public Connection conectar() {
